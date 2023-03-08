@@ -1,10 +1,10 @@
 import './App.css';
-import Stepperdecide from './Components/Stepperdecide'
+import Navbar from './Components/Navbar';
 
 function App() {
   return (
     <>
-    <Stepperdecide/>
+    <Navbar/>
     </>
       
   );
