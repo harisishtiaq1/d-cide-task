@@ -1,10 +1,12 @@
-import { Typography, Box, AppBar, Container } from "@mui/material";
+import { Typography, Box, Container, Grid, Tooltip } from "@mui/material";
 import React from "react";
 import Stepper from "@mui/material/Stepper";
 import Step from "@mui/material/Step";
 import SvgIcon from "@mui/material/SvgIcon";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import LightModeIcon from "@mui/icons-material/LightMode";
+import QuestionMarkIcon from "@mui/icons-material/QuestionMark";
 import StepLabel from "@mui/material/StepLabel";
 const steps = [
   "Options and Selection Criteria",
@@ -38,12 +40,21 @@ function Checkout() {
   };
   return (
     <>
-      <Box sx={{display:"flex",justifyContent:'space-between'}}>
+      <Box sx={{ display: "flex", justifyContent: "space-between" }}>
         <Typography sx={{ color: "#0C4E80", mt: 2, ml: 3, fontSize: 30 }}>
           d-cide
         </Typography>
-        <SvgIcon  fontSize="large"  sx={{cursor:'pointer',backgroundColor:'white',mr:4,mt:2,borderRadius:'50%'}}>
-          <DarkModeIcon fontSize="large"/>
+        <SvgIcon
+          fontSize="large"
+          sx={{
+            cursor: "pointer",
+            backgroundColor: "white",
+            mr: 4,
+            mt: 2,
+            borderRadius: "50%",
+          }}
+        >
+          <DarkModeIcon fontSize="large" />
         </SvgIcon>
       </Box>
       <Box component="main" sx={{ width: "80%", display: "flex", ml: 10 }}>
@@ -57,6 +68,67 @@ function Checkout() {
           </Stepper>
         </Container>
       </Box>
+      <Container>
+        <Grid container spacing={2}>
+          <Grid item sx={12} sm={6}>
+            <Box sx={{ display: "flex", justifyContent: "space-around" }}>
+              <Box sx={{ display: "flex" }}>
+                <Typography component="h1" variant="h5">
+                  Decision Options
+                </Typography>
+                <Tooltip title="Show Help">
+                  <SvgIcon
+                    sx={{
+                      cursor: "pointer",
+                      backgroundColor: "white",
+                      borderRadius: "50%",
+                      ml: 2,
+                      mt: 0.5,
+                    }}
+                    fontSize="medium"
+                  >
+                    <QuestionMarkIcon />
+                  </SvgIcon>
+                </Tooltip>
+              </Box>
+              <Box sx={{ display: "flex" }}>
+                <Typography component="h1" variant="h5">
+                  Selection Criteria
+                </Typography>
+                <Tooltip title="Show Help">
+                  <SvgIcon
+                    sx={{
+                      cursor: "pointer",
+                      backgroundColor: "white",
+                      borderRadius: "50%",
+                      ml: 2,
+                      mt: 0.5,
+                    }}
+                    fontSize="medium"
+                  >
+                    <QuestionMarkIcon />
+                  </SvgIcon>
+                </Tooltip>
+              </Box>
+            </Box>
+          </Grid>
+        </Grid>
+      </Container>
+      <SvgIcon
+        fontSize="large"
+        sx={{
+          cursor: "pointer",
+          backgroundColor: "white",
+          mr: 4,
+          mt: 2,
+          borderRadius: "50%",
+          position: "absolute",
+          bottom: 30,
+          right: 0,
+        }}
+      >
+        <ArrowForwardIcon fontSize="large" />
+      </SvgIcon>
     </>
   );
 }
