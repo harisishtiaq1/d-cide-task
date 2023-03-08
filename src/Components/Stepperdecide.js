@@ -7,7 +7,7 @@ import {
   TextField,
   Paper,
   IconButton,
-  Alert
+  Alert,
 } from "@mui/material";
 import React from "react";
 import Stepper from "@mui/material/Stepper";
@@ -19,25 +19,33 @@ import LightModeIcon from "@mui/icons-material/LightMode";
 import QuestionMarkIcon from "@mui/icons-material/QuestionMark";
 import StepLabel from "@mui/material/StepLabel";
 import AddIcon from "@mui/icons-material/Add";
+import Modal from "@mui/material/Modal";
+import WeightCritertia from "./WeightCritertia";
 const steps = [
   "Options and Selection Criteria",
   "Weight Criteria",
   "Rate Options",
   "Result",
 ];
-
-// function getStepContent(step) {
-//   switch (step) {
-//     case 0:
-//       return <AddressForm />;
-//     case 1:
-//       return <PaymentForm />;
-//     case 2:
-//       return <Review />;
-//     default:
-//       throw new Error("Unknown step");
-//   }
-// }
+const style = {
+  position: "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  width: 600,
+  height:400,
+  bgcolor: "#D9D9E6",
+  boxShadow: 24,
+  p: 4,
+};
+function getStepContent(step) {
+  switch (step) {
+    case 0:
+      return <WeightCritertia/>;
+    default:
+      throw new Error("Unknown step");
+  }
+}
 
 function Checkout() {
   const [activeStep, setActiveStep] = React.useState(0);
@@ -49,6 +57,10 @@ function Checkout() {
   const handleBack = () => {
     setActiveStep(activeStep - 1);
   };
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
   return (
     <>
       <Box sx={{ display: "flex", justifyContent: "space-between" }}>
@@ -56,21 +68,21 @@ function Checkout() {
           d-cide
         </Typography>
       </Box>
-      <Tooltip title='Set Dark Theme'>
-      <IconButton
-        sx={{
-          mr: 2,
-          mt: 0.5,
-          borderRadius: "50%",
-          boxShadow:
-            "4px 4px 7px rgb(0 0 0 / 50%), -4px -4px 7px rgb(255 255 255 / 50%)",
-          position:'absolute',
-          top:25,
-          right:10
-        }}
-      >
-        <DarkModeIcon />
-      </IconButton>
+      <Tooltip title="Set Dark Theme">
+        <IconButton
+          sx={{
+            mr: 2,
+            mt: 0.5,
+            borderRadius: "50%",
+            boxShadow:
+              "4px 4px 7px rgb(0 0 0 / 50%), -4px -4px 7px rgb(255 255 255 / 50%)",
+            position: "absolute",
+            top: 25,
+            right: 10,
+          }}
+        >
+          <DarkModeIcon />
+        </IconButton>
       </Tooltip>
       <Box component="main" sx={{ width: "80%", display: "flex", ml: 10 }}>
         <Container>
@@ -112,7 +124,7 @@ function Checkout() {
                       "2px 2px 5px rgb(0 0 0 / 25%), -2px -2px 5px rgb(255 255 255 / 30%)",
                   }}
                 >
-                  <QuestionMarkIcon />
+                  <QuestionMarkIcon onClick={handleOpen} />
                 </IconButton>
               </Tooltip>
             </Box>
@@ -269,6 +281,7 @@ function Checkout() {
           </Box>
         </Box>
       </Container>
+      <Tooltip title="Next Step">
       <IconButton
         fontSize="large"
         sx={{
@@ -286,9 +299,45 @@ function Checkout() {
       >
         <ArrowForwardIcon fontSize="large" />
       </IconButton>
-      <Box sx={{width:400,height:'300',position:'absolute',bottom:20,right:'35%'}}>
-      <Alert sx={{fontSize:'15px'}} severity="warning">At least two decision options are necessary!</Alert>
+      </Tooltip>
+      <Box
+        sx={{
+          width: 400,
+          height: "300",
+          position: "absolute",
+          bottom: 20,
+          right: "35%",
+        }}
+      >
+        <Alert sx={{ fontSize: "15px" }} severity="warning">
+          At least two decision options are necessary!
+        </Alert>
       </Box>
+      <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <Box sx={style}>
+          <Typography id="modal-modal-title" variant="h6" component="h2">
+            Decision Options
+          </Typography>
+          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+            Write every decision option you need to decide for. For example, if
+            you want to make an investment, your decision options may look like
+            this:
+            .Invest in gold 
+            .Invest in shares 
+            .Invest in real state 
+            Take some
+            time to think about every other option "out of the box" that may
+            also exist. In case you have a binary decision (yes/no), you should
+            write two decision options. For example: Invest money Don't invest
+            money
+          </Typography>
+        </Box>
+      </Modal>
     </>
   );
 }
