@@ -1,4 +1,4 @@
-import { createTheme, ThemeProvider,Box } from "@mui/material";
+import { createTheme, ThemeProvider, Box } from "@mui/material";
 import { createContext, useMemo, useState } from "react";
 
 export const colorModeContext = createContext({
@@ -21,27 +21,27 @@ export const ColorContextProvider = ({ children }) => {
   const theme = createTheme({
     palette: {
       mode,
-      ...(mode === 'dark' && {
+      ...(mode === "dark" && {
         background: {
-            default:'linear-gradient(145deg, #34393f, #16191b)',
-            paper:'#3E4349'
+          default: "linear-gradient(145deg, #34393f, #16191b)",
+          paper: "#3E4349",
         },
-        backgroundColor:{
-            default:'#34393f',
-            paper:'#3E4349'
+        backgroundColor: {
+          default: "#34393f",
+          paper: "#3E4349",
         },
-        text:{
-            default:'white'
-        }
+        text: {
+          default: "white",
+        },
       }),
-      ...(mode === 'light' && {
+      ...(mode === "light" && {
         background: {
-            default:'linear-gradient(145deg, #cfcfe0, #babaca)',
-            paper:'#D9D9E6',
+          default: "linear-gradient(145deg, #cfcfe0, #babaca)",
+          paper: "#D9D9E6",
         },
-        backgroundColor:{
-            default:'#cfcfe0',
-            paper:'#D9D9E6'
+        backgroundColor: {
+          default: "#cfcfe0",
+          paper: "#D9D9E6",
         },
       }),
     },
@@ -49,15 +49,18 @@ export const ColorContextProvider = ({ children }) => {
   return (
     <colorModeContext.Provider value={colorMode}>
       <ThemeProvider theme={theme}>
-      <Box
-      sx={{
-        width: '100%',
-        backgroundColor: 'backgroundColor.default',
-        color: 'text.primary',
-        minHeight:"100vh",
-        background:"background.default"
-      }}
-    >{children}</Box></ThemeProvider>
+        <Box
+          sx={{
+            width: "100%",
+            backgroundColor: "backgroundColor.default",
+            color: "text.primary",
+            minHeight: "100vh",
+            background: "background.default",
+          }}
+        >
+          {children}
+        </Box>
+      </ThemeProvider>
     </colorModeContext.Provider>
   );
 };

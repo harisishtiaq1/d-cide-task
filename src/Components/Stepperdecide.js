@@ -46,9 +46,15 @@ function Checkout() {
 
   return (
     <>
-      <Box sx={{  display: "flex",alignItems:'center',justifyContent:'center' }}>
-        <Container >
-          <Stepper  alternativeLabel   activeStep={activeStep} sx={{ pt: 3, pb: 5 }}>
+      <Box
+        sx={{ display: "flex", alignItems: "center", justifyContent: "center" }}
+      >
+        <Container>
+          <Stepper
+            alternativeLabel
+            activeStep={activeStep}
+            sx={{ pt: 3, pb: 5 }}
+          >
             {steps.map((label) => (
               <Step key={label}>
                 <StepLabel>{label}</StepLabel>
