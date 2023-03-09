@@ -46,9 +46,9 @@ function Checkout() {
 
   return (
     <>
-      <Box component="main" sx={{ width: "80%", display: "flex", ml: 10 }}>
-        <Container>
-          <Stepper activeStep={activeStep} sx={{ pt: 3, pb: 5 }}>
+      <Box sx={{  display: "flex",alignItems:'center',justifyContent:'center' }}>
+        <Container >
+          <Stepper  alternativeLabel   activeStep={activeStep} sx={{ pt: 3, pb: 5 }}>
             {steps.map((label) => (
               <Step key={label}>
                 <StepLabel>{label}</StepLabel>

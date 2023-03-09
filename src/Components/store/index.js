@@ -52,7 +52,7 @@ export const ColorContextProvider = ({ children }) => {
         width: '100%',
         backgroundColor: 'backgroundColor.default',
         color: 'text.primary',
-        height:'100vh',
+        minHeight:"100vh",
         background:"background.default"
       }}
     >{children}</Box></ThemeProvider>
