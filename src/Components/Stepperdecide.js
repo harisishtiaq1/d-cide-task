@@ -5,7 +5,6 @@ import Step from "@mui/material/Step";
 import "../App.css";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-// import LightModeIcon from "@mui/icons-material/LightMode";
 import StepLabel from "@mui/material/StepLabel";
 import Main from "./Main";
 import WeightCritertia from "./WeightCritertia";
