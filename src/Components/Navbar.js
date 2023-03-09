@@ -1,16 +1,17 @@
-import React from 'react'
-import {Typography, Box,Tooltip,IconButton } from '@mui/material'
+import { React, useContext } from "react";
+import { Typography, Box, Tooltip, IconButton } from "@mui/material";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
-import Stepperdecide from "./Stepperdecide"
-import "../App.css"
-function myFunction() {
-    var element = document.body;
-    element.classList.toggle("dark-mode");
-  }
+import Stepperdecide from "./Stepperdecide";
+import "../App.css";
+import { ColorContextProvider, colorModeContext } from "./store/index";
+
 function Navbar() {
+  const { mode, toggleMode } = useContext(colorModeContext);
+  console.log("mode", mode);
+
   return (
     <>
-    <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+      <Box sx={{ display: "flex", justifyContent: "space-between" }}>
         <Typography sx={{ color: "#0C4E80", mt: 2, ml: 3, fontSize: 30 }}>
           d-cide
         </Typography>
@@ -28,12 +29,12 @@ function Navbar() {
             right: 10,
           }}
         >
-          <DarkModeIcon onClick={myFunction} />
+          <DarkModeIcon onClick={toggleMode} />
         </IconButton>
       </Tooltip>
-      <Stepperdecide/>
-      </>
-  )
+      <Stepperdecide />
+    </>
+  );
 }
 
-export default Navbar
+export default Navbar;

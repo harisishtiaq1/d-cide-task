@@ -35,8 +35,6 @@ function getStepContent(step) {
 }
 
 function Checkout() {
-  const {mode,toggleMode}=useContext(colorModeContext)
-  console.log({mode});
   const [activeStep, setActiveStep] = React.useState(0);
 
   const handleNext = () => {
@@ -49,7 +47,7 @@ function Checkout() {
 
   return (
     <>
-    <ColorContextProvider>
+    
       <Box component="main" sx={{ width: "80%", display: "flex", ml: 10 }}>
         <Container>
           <Stepper activeStep={activeStep} sx={{ pt: 3, pb: 5 }}>
@@ -106,7 +104,6 @@ function Checkout() {
           )}
       {/* <WeightCritertia/> */}
       {getStepContent(activeStep)}
-      </ColorContextProvider>
     </>
   );
 }
