@@ -26,14 +26,14 @@ const style = {
   p: 4,
 };
 function Main() {
-  const [create,setCreate]=React.useState()
+  const [create, setCreate] = React.useState();
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-  const [newEntries,setNewEntries]=useState([])
-  const handleButtonClick=(newEntries)=>{
-    setNewEntries((prevState)=>([...prevState,newEntries]))
-  }
+  const [newEntries, setNewEntries] = useState([]);
+  const handleButtonClick = (newEntries) => {
+    setNewEntries((prevState) => [...prevState, newEntries]);
+  };
   return (
     <>
       <Container>
@@ -60,9 +60,10 @@ function Main() {
                   sx={{
                     ml: 2,
                     mt: 0.5,
-                    backgroundColor: "#D9D9E6",
                     boxShadow:
-                      "2px 2px 5px rgb(0 0 0 / 25%), -2px -2px 5px rgb(255 255 255 / 30%)",
+                      "3px 3px 6px rgb(0 0 0 / 25%), -3px -3px 6px rgb(255 255 255 / 6%)",
+
+                    backgroundColor: "Background.default",
                   }}
                 >
                   <QuestionMarkIcon onClick={handleOpen} />
@@ -76,7 +77,7 @@ function Main() {
                   color: "transparent",
                   width: 350,
                   borderRadius: "10px",
-                  backgroundColor: "#D9D9E6",
+                  backgroundColor: "backgroundColor.paper",
                 }}
               >
                 <Tooltip title="Write New Entry">
@@ -86,9 +87,9 @@ function Main() {
                     variant="standard"
                     sx={{ ml: 4, mt: 1, width: 250 }}
                     value={create}
-                    onChange={((e)=>{
-                      setCreate(e.target.value)
-                    })}
+                    onChange={(e) => {
+                      setCreate(e.target.value);
+                    }}
                   />
                 </Tooltip>
                 <Tooltip title="Add Entry">
@@ -97,7 +98,7 @@ function Main() {
                       ml: 2,
                       mt: 0.5,
                       boxShadow:
-                        "2px 2px 5px rgb(0 0 0 / 25%), -2px -2px 5px rgb(255 255 255 / 30%)",
+                        "3px 3px 6px rgb(0 0 0 / 25%), -3px -3px 6px rgb(255 255 255 / 6%)",
                     }}
                   >
                     <AddIcon />
@@ -111,7 +112,7 @@ function Main() {
                   color: "transparent",
                   width: 350,
                   borderRadius: "10px",
-                  backgroundColor: "#D9D9E6",
+                  backgroundColor: "backgroundColor.paper",
                 }}
               >
                 <Tooltip title="Edit Entry">
@@ -127,7 +128,7 @@ function Main() {
                       ml: 2,
                       mt: 0.5,
                       boxShadow:
-                        "2px 2px 5px rgb(0 0 0 / 25%), -2px -2px 5px rgb(255 255 255 / 30%)",
+                        "3px 3px 6px rgb(0 0 0 / 25%), -3px -3px 6px rgb(255 255 255 / 6%)",
                     }}
                   >
                     <DeleteIcon />
@@ -151,9 +152,9 @@ function Main() {
                 <IconButton
                   sx={{
                     ml: 2,
-                    backgroundColor: "#D9D9E6",
+                    backgroundColor: "Background.default",
                     boxShadow:
-                      "2px 2px 5px rgb(0 0 0 / 25%), -2px -2px 5px rgb(255 255 255 / 30%)",
+                      "3px 3px 6px rgb(0 0 0 / 25%), -3px -3px 6px rgb(255 255 255 / 6%)",
                   }}
                 >
                   <QuestionMarkIcon />
@@ -168,7 +169,7 @@ function Main() {
                   color: "transparent",
                   width: 350,
                   borderRadius: "10px",
-                  backgroundColor: "#D9D9E6",
+                  backgroundColor: "backgroundColor.paper",
                 }}
               >
                 <Tooltip title="Write New Entry">
@@ -185,7 +186,7 @@ function Main() {
                       ml: 2,
                       mt: 0.5,
                       boxShadow:
-                        "2px 2px 5px rgb(0 0 0 / 25%), -2px -2px 5px rgb(255 255 255 / 30%)",
+                        "3px 3px 6px rgb(0 0 0 / 25%), -3px -3px 6px rgb(255 255 255 / 6%)",
                     }}
                   >
                     <AddIcon />
@@ -199,7 +200,7 @@ function Main() {
                   color: "transparent",
                   width: 350,
                   borderRadius: "10px",
-                  backgroundColor: "#D9D9E6",
+                  backgroundColor: "backgroundColor.paper",
                 }}
               >
                 <Tooltip title="Edit Entry">
@@ -215,7 +216,7 @@ function Main() {
                       ml: 2,
                       mt: 0.5,
                       boxShadow:
-                        "2px 2px 5px rgb(0 0 0 / 25%), -2px -2px 5px rgb(255 255 255 / 30%)",
+                        "3px 3px 6px rgb(0 0 0 / 25%), -3px -3px 6px rgb(255 255 255 / 6%)",
                     }}
                   >
                     <DeleteIcon />

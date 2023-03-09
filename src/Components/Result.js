@@ -1,9 +1,6 @@
 import { Box, Container, Grid, Paper, Typography } from "@mui/material";
 import React from "react";
-import {
-    Tooltip,
-    IconButton,
-  } from "@mui/material";
+import { Tooltip, IconButton } from "@mui/material";
 import QuestionMarkIcon from "@mui/icons-material/QuestionMark";
 function Result() {
   return (
@@ -27,21 +24,33 @@ function Result() {
                 backgroundColor: "#d9d9e6",
               }}
             >
-              <Box sx={{display:'flex',alignItems:'center',justifyContent:'center'}}>
-                <Typography sx={{color:'black',mt:4}} component='h1' variant='h5'>Decision Options Ranking</Typography>
-                <Tooltip title="Show Help">
-                <IconButton
-                  sx={{
-                    ml: 2,
-                    mt: 3,
-                    backgroundColor: "#D9D9E6",
-                    boxShadow:
-                      "2px 2px 5px rgb(0 0 0 / 25%), -2px -2px 5px rgb(255 255 255 / 30%)",
-                  }}
+              <Box
+                sx={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+              >
+                <Typography
+                  sx={{ color: "black", mt: 4 }}
+                  component="h1"
+                  variant="h5"
                 >
-                  <QuestionMarkIcon/>
-                </IconButton>
-              </Tooltip>
+                  Decision Options Ranking
+                </Typography>
+                <Tooltip title="Show Help">
+                  <IconButton
+                    sx={{
+                      ml: 2,
+                      mt: 4,
+                      backgroundColor: "backgroundColor.default",
+                      boxShadow:
+                        "3px 3px 6px rgb(0 0 0 / 25%), -3px -3px 6px rgb(255 255 255 / 5%)",
+                    }}
+                  >
+                    <QuestionMarkIcon />
+                  </IconButton>
+                </Tooltip>
               </Box>
             </Paper>
           </Grid>

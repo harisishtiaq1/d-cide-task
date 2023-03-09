@@ -20,12 +20,12 @@ function RateOptions() {
             Rate Options
           </Typography>
           <Tooltip title="Show Help">
-            <IconButton
+          <IconButton
               sx={{
                 ml: 2,
-                backgroundColor: "#D9D9E6",
+                backgroundColor: "backgroundColor.default",
                 boxShadow:
-                  "2px 2px 5px rgb(0 0 0 / 25%), -2px -2px 5px rgb(255 255 255 / 30%)",
+                "3px 3px 6px rgb(0 0 0 / 25%), -3px -3px 6px rgb(255 255 255 / 5%)",
               }}
             >
               <QuestionMarkIcon />

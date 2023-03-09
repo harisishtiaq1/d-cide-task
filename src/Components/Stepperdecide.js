@@ -1,5 +1,5 @@
 import { Box, Container, Tooltip, IconButton } from "@mui/material";
-import React, { useContext } from "react";
+import React from "react";
 import Stepper from "@mui/material/Stepper";
 import Step from "@mui/material/Step";
 import "../App.css";
@@ -11,7 +11,6 @@ import Main from "./Main";
 import WeightCritertia from "./WeightCritertia";
 import RateOptions from "./RateOptions";
 import Result from "./Result";
-import { ColorContextProvider, colorModeContext } from "./store/index";
 const steps = [
   "Options and Selection Criteria",
   "Weight Criteria",
@@ -28,7 +27,7 @@ function getStepContent(step) {
     case 2:
       return <RateOptions />;
     case 3:
-      return <Result/>
+      return <Result />;
     default:
       throw new Error("Unknown step");
   }
@@ -38,16 +37,15 @@ function Checkout() {
   const [activeStep, setActiveStep] = React.useState(0);
 
   const handleNext = () => {
-    setActiveStep(activeStep + 1)
-  }
+    setActiveStep(activeStep + 1);
+  };
 
   const handleBack = () => {
-    setActiveStep(activeStep - 1)
-  }
+    setActiveStep(activeStep - 1);
+  };
 
   return (
     <>
-    
       <Box component="main" sx={{ width: "80%", display: "flex", ml: 10 }}>
         <Container>
           <Stepper activeStep={activeStep} sx={{ pt: 3, pb: 5 }}>
@@ -60,48 +58,47 @@ function Checkout() {
         </Container>
       </Box>
       {activeStep < 3 && (
-      <Tooltip title="Next Step">
-        <IconButton
-          fontSize="large"
-          sx={{
-            cursor: "pointer",
-            backgroundColor: "#D9D9E6",
-            mr: 4,
-            mt: 2,
-            borderRadius: "50%",
-            position: "absolute",
-            bottom: 30,
-            right: 0,
-            boxShadow:
-              "2px 2px 5px rgb(0 0 0 / 25%), -2px -2px 5px rgb(255 255 255 / 30%)",
-          }}
-        >
-          <ArrowForwardIcon fontSize="large" onClick={handleNext} />
-        </IconButton>
-      </Tooltip>)}
-      {activeStep > 0 &&  (
-      <Tooltip title="Next Step">
-      
-        <IconButton
-          fontSize="large"
-          sx={{
-            cursor: "pointer",
-            backgroundColor: "#D9D9E6",
-            mr: 4,
-            mt: 2,
-            borderRadius: "50%",
-            position: "absolute",
-            bottom: 30,
-            left: 20,
-            boxShadow:
-              "2px 2px 5px rgb(0 0 0 / 25%), -2px -2px 5px rgb(255 255 255 / 30%)",
-          }}
-        >
-          
+        <Tooltip title="Next Step">
+          <IconButton
+            fontSize="large"
+            sx={{
+              cursor: "pointer",
+              backgroundColor: "BackgroundColor.default",
+              mr: 4,
+              mt: 2,
+              borderRadius: "50%",
+              position: "absolute",
+              bottom: 30,
+              right: 0,
+              boxShadow:
+                "3px 3px 6px rgb(0 0 0 / 25%), -3px -3px 6px rgb(255 255 255 / 5%)",
+            }}
+          >
+            <ArrowForwardIcon fontSize="large" onClick={handleNext} />
+          </IconButton>
+        </Tooltip>
+      )}
+      {activeStep > 0 && (
+        <Tooltip title="Previous Step">
+          <IconButton
+            fontSize="large"
+            sx={{
+              cursor: "pointer",
+              backgroundColor: "BackgroundColor.default",
+              mr: 4,
+              mt: 2,
+              borderRadius: "50%",
+              position: "absolute",
+              bottom: 30,
+              left: 20,
+              boxShadow:
+                "3px 3px 6px rgb(0 0 0 / 25%), -3px -3px 6px rgb(255 255 255 / 5%)",
+            }}
+          >
             <ArrowBackIcon fontSize="large" onClick={handleBack} />
-        </IconButton>
-      </Tooltip>
-          )}
+          </IconButton>
+        </Tooltip>
+      )}
       {/* <WeightCritertia/> */}
       {getStepContent(activeStep)}
     </>
