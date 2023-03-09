@@ -23,10 +23,12 @@ export const ColorContextProvider = ({ children }) => {
       mode,
       ...(mode === 'dark' && {
         background: {
-            default:'linear-gradient(145deg, #34393f, #16191b)'
+            default:'linear-gradient(145deg, #34393f, #16191b)',
+            paper:'#3E4349'
         },
         backgroundColor:{
-            default:'#34393f'
+            default:'#34393f',
+            paper:'#3E4349'
         },
         text:{
             default:'white'

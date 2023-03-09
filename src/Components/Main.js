@@ -8,7 +8,7 @@ import {
   IconButton,
   // Alert,
   Grid,
-  Stack
+  Stack,
 } from "@mui/material";
 import React, { useState } from "react";
 import DeleteIcon from "@mui/icons-material/Delete";
@@ -39,24 +39,34 @@ function Main() {
     setEntries((prevState) => [...prevState, Entry]);
     setCreate("");
   };
-  const handleDeleteButton=(deleteItemindex)=>{
-    const filtered=Entries.filter((item,index)=> index !== deleteItemindex)
-  setEntries(filtered)
-  }
-  const handleDelete1Button=(deleteItemindex)=>{
-    const filtered=newEntries.filter((item,index)=> index !== deleteItemindex)
-  setNewEntries(filtered)
-  }
+  const handleDeleteButton = (deleteItemindex) => {
+    const filtered = Entries.filter((item, index) => index !== deleteItemindex);
+    setEntries(filtered);
+  };
+  const handleDelete1Button = (deleteItemindex) => {
+    const filtered = newEntries.filter(
+      (item, index) => index !== deleteItemindex
+    );
+    setNewEntries(filtered);
+  };
   const handleButton1Click = (Entry) => {
     setNewEntries((prevState) => [...prevState, Entry]);
     setnewCreate("");
   };
   return (
     <>
-      <Container sx={{display:'flex',justifyContent:'center',alignItems:'center'}}>
-        <Grid container spacing={2} >
+      <Container>
+        <Grid
+          container
+          spacing={2}
+          sx={{
+            display: "flex",
+            justifyContent: "space-around",
+            alignItems: "space-around",
+          }}
+        >
           <Grid item xs={12} md={6}>
-            <Stack direction='row'>
+            <Stack direction="row">
               <Typography component="h1" variant="h5">
                 Decision Options
               </Typography>
@@ -73,7 +83,7 @@ function Main() {
                   <QuestionMarkIcon onClick={handleOpen} />
                 </IconButton>
               </Tooltip>
-              </Stack>
+            </Stack>
             <Box sx={{ mt: 3 }}>
               <Paper
                 sx={{
@@ -112,7 +122,7 @@ function Main() {
               </Paper>
             </Box>
             {Entries &&
-              Entries.map((Entry,index) => {
+              Entries.map((Entry, index) => {
                 return (
                   <Box sx={{ mt: 3 }}>
                     <Paper
@@ -140,7 +150,7 @@ function Main() {
                             boxShadow:
                               "3px 3px 6px rgb(0 0 0 / 25%), -3px -3px 6px rgb(255 255 255 / 6%)",
                           }}
-                          onClick={()=>handleDeleteButton(index)}
+                          onClick={() => handleDeleteButton(index)}
                         >
                           <DeleteIcon />
                         </IconButton>
@@ -149,9 +159,9 @@ function Main() {
                   </Box>
                 );
               })}
-              </Grid>
+          </Grid>
           <Grid item xs={12} md={6}>
-            <Stack  direction='row'  >
+            <Stack direction="row">
               <Typography component="h1" variant="h5">
                 Selection Criteria
               </Typography>
@@ -167,7 +177,7 @@ function Main() {
                   <QuestionMarkIcon />
                 </IconButton>
               </Tooltip>
-              </Stack>
+            </Stack>
             <Box sx={{ mt: 3 }}>
               <Paper
                 sx={{
@@ -205,46 +215,45 @@ function Main() {
                 </Tooltip>
               </Paper>
               {newEntries &&
-              newEntries.map((Entry,index) => {
-                return (
-                  <Box sx={{ mt: 3 }}>
-                    <Paper
-                      sx={{
-                        height: 50,
-                        color: "transparent",
-                        width: 350,
-                        borderRadius: "10px",
-                        backgroundColor: "backgroundColor.paper",
-                      }}
-                    >
-                      <Tooltip title="Edit Entry">
-                        <TextField
-                          id="standard-basic"
-                          variant="standard"
-                          sx={{ ml: 4, mt: 1, width: 250 }}
-                          value={Entry}
-                        />
-                      </Tooltip>
-                      <Tooltip title="Delete Entry">
-                        <IconButton
-                          sx={{
-                            ml: 2,
-                            mt: 0.5,
-                            boxShadow:
-                              "3px 3px 6px rgb(0 0 0 / 25%), -3px -3px 6px rgb(255 255 255 / 6%)",
-                          }}
-                          onClick={()=>handleDelete1Button(index)}
-                        >
-                          <DeleteIcon />
-                        </IconButton>
-                      </Tooltip>
-                    </Paper>
-                  </Box>
-                );
-              })}
+                newEntries.map((Entry, index) => {
+                  return (
+                    <Box sx={{ mt: 3 }}>
+                      <Paper
+                        sx={{
+                          height: 50,
+                          color: "transparent",
+                          width: 350,
+                          borderRadius: "10px",
+                          backgroundColor: "backgroundColor.paper",
+                        }}
+                      >
+                        <Tooltip title="Edit Entry">
+                          <TextField
+                            id="standard-basic"
+                            variant="standard"
+                            sx={{ ml: 4, mt: 1, width: 250 }}
+                            value={Entry}
+                          />
+                        </Tooltip>
+                        <Tooltip title="Delete Entry">
+                          <IconButton
+                            sx={{
+                              ml: 2,
+                              mt: 0.5,
+                              boxShadow:
+                                "3px 3px 6px rgb(0 0 0 / 25%), -3px -3px 6px rgb(255 255 255 / 6%)",
+                            }}
+                            onClick={() => handleDelete1Button(index)}
+                          >
+                            <DeleteIcon />
+                          </IconButton>
+                        </Tooltip>
+                      </Paper>
+                    </Box>
+                  );
+                })}
             </Box>
-            </Grid>
-
+          </Grid>
         </Grid>
       </Container>
       {/* <Box
