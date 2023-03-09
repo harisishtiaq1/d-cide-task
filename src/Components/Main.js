@@ -8,7 +8,7 @@ import {
   IconButton,
   Alert,
 } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
 import DeleteIcon from "@mui/icons-material/Delete";
 // import LightModeIcon from "@mui/icons-material/LightMode";
 import QuestionMarkIcon from "@mui/icons-material/QuestionMark";
@@ -26,9 +26,14 @@ const style = {
   p: 4,
 };
 function Main() {
+  const [create,setCreate]=React.useState()
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+  const [newEntries,setNewEntries]=useState([])
+  const handleButtonClick=(newEntries)=>{
+    setNewEntries((prevState)=>([...prevState,newEntries]))
+  }
   return (
     <>
       <Container>
@@ -80,6 +85,10 @@ function Main() {
                     placeholder="New Entry"
                     variant="standard"
                     sx={{ ml: 4, mt: 1, width: 250 }}
+                    value={create}
+                    onChange={((e)=>{
+                      setCreate(e.target.value)
+                    })}
                   />
                 </Tooltip>
                 <Tooltip title="Add Entry">

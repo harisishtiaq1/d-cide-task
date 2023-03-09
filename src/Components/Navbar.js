@@ -2,6 +2,11 @@ import React from 'react'
 import {Typography, Box,Tooltip,IconButton } from '@mui/material'
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 import Stepperdecide from "./Stepperdecide"
+import "../App.css"
+function myFunction() {
+    var element = document.body;
+    element.classList.toggle("dark-mode");
+  }
 function Navbar() {
   return (
     <>
@@ -23,7 +28,7 @@ function Navbar() {
             right: 10,
           }}
         >
-          <DarkModeIcon />
+          <DarkModeIcon onClick={myFunction} />
         </IconButton>
       </Tooltip>
       <Stepperdecide/>
