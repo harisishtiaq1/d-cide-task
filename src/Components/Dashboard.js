@@ -8,9 +8,12 @@ import {
   Alert,
   Grid,
   Stack,
+  ListItem,
+  List,
 } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
-import React, { useState } from "react";
+import CircleIcon from '@mui/icons-material/Circle';
+import React, { useEffect, useState } from "react";
 import DeleteIcon from "@mui/icons-material/Delete";
 import QuestionMarkIcon from "@mui/icons-material/QuestionMark";
 import AddIcon from "@mui/icons-material/Add";
@@ -20,12 +23,12 @@ const style = {
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
-  width: 600,
-  height: 400,
-  color: 'color.default',
-  background:'background.default',
-  backgroundColor:'backgroundColor.default',
+  width: 800,
+  color: "color.default",
+  background: "background.default",
+  backgroundColor: "backgroundColor.default",
   boxShadow: 24,
+  borderRadius:'20px',
   p: 4,
 };
 function Main() {
@@ -54,8 +57,11 @@ function Main() {
     setNewEntries((prevState) => [...prevState, Entry]);
     setnewCreate("");
   };
-  localStorage.setItem("Entries", Entries);
+  localStorage.setItem("Entries",JSON.stringify(Entries));
   console.log({ localStorage });
+  useEffect(()=>{
+    JSON.parse(localStorage.getItem("Entries"))
+  },[])
   return (
     <>
       <Grid container spacing={2}>
@@ -229,6 +235,7 @@ function Main() {
                         "3px 3px 6px rgb(0 0 0 / 25%), -3px -3px 6px rgb(255 255 255 / 6%)",
                     }}
                     onClick={() => handleButton1Click(newCreate)}
+                    
                   >
                     <AddIcon />
                   </IconButton>
@@ -289,60 +296,89 @@ function Main() {
           At least two decision options are necessary!
         </Alert>
       </Box>
-      <Paper sx={{background:'background.default',
-      backgroundColor:'backgroundColor.default'}}>
-      <Modal
-        open={open}
-        onClose={handleClose}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
+      <Paper
+        sx={{
+          background: "background.default",
+          backgroundColor: "backgroundColor.default",
+        }}
       >
-        <Box sx={style}>
-          <Tooltip title="Close">
-          <IconButton
-            aria-label="close"
-            onClick={handleClose}
-            sx={{
-              position: "absolute",
-              right: 8,
-              top: 8,
-              boxShadow:
-                "3px 3px 6px rgb(0 0 0 / 25%), -3px -3px 6px rgb(255 255 255 / 6%)",
-            }}
-          >
-            <CloseIcon />
-          </IconButton>
-          </Tooltip>
-          <Typography id="modal-modal-title" variant="h6" component="h2">
-            Decision Options
-          </Typography>
-          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            Write every decision option you need to decide for. For example, if
-            you want to make an investment, your decision options may look like
-            this:
-          </Typography>
-          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            .Invest in gold
-          </Typography>
-          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            .Invest in shares
-          </Typography>
-          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            .Invest in real state
-          </Typography>
-          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            Take some time to think about every other option "out of the box"
-            that may also exist. In case you have a binary decision (yes/no),
-            you should write two decision options. For example:
-          </Typography>
-          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            .Invest money
-          </Typography>
-          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            .Don't invest money
-          </Typography>
-        </Box>
-      </Modal>
+        <Modal
+          open={open}
+          onClose={handleClose}
+          aria-labelledby="modal-modal-title"
+          aria-describedby="modal-modal-description"
+        >
+          <Box sx={style}>
+            <Tooltip title="Close">
+              <IconButton
+                aria-label="close"
+                onClick={handleClose}
+                sx={{
+                  position: "absolute",
+                  right: 8,
+                  top: 8,
+                  boxShadow:
+                    "3px 3px 6px rgb(0 0 0 / 25%), -3px -3px 6px rgb(255 255 255 / 6%)",
+                }}
+              >
+                <CloseIcon />
+              </IconButton>
+            </Tooltip>
+            <Typography id="modal-modal-title" variant="h6" component="h2">
+              Decision Options
+            </Typography>
+            <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+              Write every decision option you need to decide for.
+              <Box component='br'/ 
+              >
+              For example,
+              if you want to make an investment, your decision options may look
+              like this:
+            </Typography>
+           <List>
+            <ListItem>
+              <IconButton sx={{width:'20px'}}>
+                <CircleIcon sx={{fontSize:'10px'}}/>
+              </IconButton>
+              Invest In gold
+            </ListItem>
+            <ListItem>
+            <IconButton sx={{width:'20px'}}>
+                <CircleIcon sx={{fontSize:'10px'}}/>
+              </IconButton>
+              Invest In Shares
+            </ListItem>
+            <ListItem>
+            <IconButton sx={{width:'20px'}}>
+                <CircleIcon sx={{fontSize:'10px'}}/>
+              </IconButton>
+              Invest In Real Estate
+            </ListItem>
+           </List>
+            <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+              Take some time to think about every other option "out of the box"
+              that may also exist.
+              <Box component='br'/>
+              <Box component='br'/> 
+              In case you have a binary decision (yes/no),
+              you should write two decision options. For example:
+            </Typography>
+            <List>
+            <ListItem>
+              <IconButton sx={{width:'20px'}}>
+                <CircleIcon sx={{fontSize:'10px'}}/>
+              </IconButton>
+              Invest Money
+            </ListItem>
+            <ListItem>
+            <IconButton sx={{width:'20px'}}>
+                <CircleIcon sx={{fontSize:'10px'}}/>
+              </IconButton>
+              Do not Invest Money
+            </ListItem>
+           </List>
+          </Box>
+        </Modal>
       </Paper>
     </>
   );
