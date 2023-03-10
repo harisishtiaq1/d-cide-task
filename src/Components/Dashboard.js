@@ -11,7 +11,7 @@ import {
   ListItem,
   List,
   Fade,
-  Snackbar
+  Snackbar,
 } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import CircleIcon from "@mui/icons-material/Circle";
@@ -48,13 +48,16 @@ function Main() {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   const [Entries, setEntries] = useState(
-    JSON.parse(localStorage.getItem('Entries') || [])
+    JSON.parse(localStorage.getItem("Entries") || [])
   );
   const [newEntries, setNewEntries] = useState(
-    JSON.parse(localStorage.getItem('newEntries') || []));
+    JSON.parse(localStorage.getItem("newEntries") || [])
+  );
   const handleButtonClick = (Entry) => {
-    setEntries((prevState) => [...prevState, Entry]);
-    setCreate("");
+    if (Entry) {
+      setEntries((prevState) => [...prevState, Entry]);
+      setCreate("");
+    }
   };
   const handleDeleteButton = (deleteItemindex) => {
     const filtered = Entries.filter((item, index) => index !== deleteItemindex);
@@ -67,15 +70,17 @@ function Main() {
     setNewEntries(filtered);
   };
   const handleButton1Click = (Entry) => {
-    setNewEntries((prevState) => [...prevState, Entry]);
-    setnewCreate("");
+    if (Entry) {
+      setNewEntries((prevState) => [...prevState, Entry]);
+      setnewCreate("");
+    }
   };
   useEffect(() => {
-  localStorage.setItem("Entries",JSON.stringify(Entries));
+    localStorage.setItem("Entries", JSON.stringify(Entries));
   }, [Entries]);
 
   useEffect(() => {
-  localStorage.setItem("newEntries",JSON.stringify(newEntries));
+    localStorage.setItem("newEntries", JSON.stringify(newEntries));
   }, [newEntries]);
   return (
     <>
@@ -264,39 +269,39 @@ function Main() {
                 newEntries.map((Entry, index) => {
                   return (
                     <Fade in={handlenewChange}>
-                    <Box sx={{ mt: 3 }}>
-                      <Paper
-                        sx={{
-                          height: 50,
-                          color: "transparent",
-                          width: 400,
-                          borderRadius: "10px",
-                          backgroundColor: "backgroundColor.paper",
-                        }}
-                      >
-                        <Tooltip title="Edit Entry">
-                          <TextField
-                            id="standard-basic"
-                            variant="standard"
-                            sx={{ ml: 4, mt: 1, width: 300 }}
-                            value={Entry}
-                          />
-                        </Tooltip>
-                        <Tooltip title="Delete Entry">
-                          <IconButton
-                            sx={{
-                              ml: 2,
-                              mt: 0.5,
-                              boxShadow:
-                                "3px 3px 6px rgb(0 0 0 / 25%), -3px -3px 6px rgb(255 255 255 / 6%)",
-                            }}
-                            onClick={() => handleDelete1Button(index)}
-                          >
-                            <DeleteIcon />
-                          </IconButton>
-                        </Tooltip>
-                      </Paper>
-                    </Box>
+                      <Box sx={{ mt: 3 }}>
+                        <Paper
+                          sx={{
+                            height: 50,
+                            color: "transparent",
+                            width: 400,
+                            borderRadius: "10px",
+                            backgroundColor: "backgroundColor.paper",
+                          }}
+                        >
+                          <Tooltip title="Edit Entry">
+                            <TextField
+                              id="standard-basic"
+                              variant="standard"
+                              sx={{ ml: 4, mt: 1, width: 300 }}
+                              value={Entry}
+                            />
+                          </Tooltip>
+                          <Tooltip title="Delete Entry">
+                            <IconButton
+                              sx={{
+                                ml: 2,
+                                mt: 0.5,
+                                boxShadow:
+                                  "3px 3px 6px rgb(0 0 0 / 25%), -3px -3px 6px rgb(255 255 255 / 6%)",
+                              }}
+                              onClick={() => handleDelete1Button(index)}
+                            >
+                              <DeleteIcon />
+                            </IconButton>
+                          </Tooltip>
+                        </Paper>
+                      </Box>
                     </Fade>
                   );
                 })}
@@ -305,13 +310,13 @@ function Main() {
         </Grid>
       </Grid>
       <Snackbar
-      anchorOrigin= {{vertical:"bottom",horizontal:'center'}}
-     open={true}
-        >
+        anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+        open={true}
+      >
         <Alert sx={{ fontSize: "15px" }} severity="warning">
           At least two decision options are necessary!
         </Alert>
-</Snackbar>      
+      </Snackbar>
       <Paper
         sx={{
           background: "background.default",
