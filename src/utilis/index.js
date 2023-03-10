@@ -43,9 +43,9 @@ export const ColorContextProvider = ({ children }) => {
           default: "#cfcfe0",
           paper: "#D9D9E6",
         },
-        color:{
-          default:'black'
-        }
+        color: {
+          default: "black",
+        },
       }),
     },
   });
