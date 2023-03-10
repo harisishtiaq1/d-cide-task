@@ -8,7 +8,6 @@ import {
   Alert,
   Grid,
   Stack,
-  createTheme,
 } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import React, { useState } from "react";
@@ -31,7 +30,6 @@ const style = {
   p: 4,
 };
 function Main() {
-  const theme=createTheme();
   const [create, setCreate] = React.useState("");
   const [newCreate, setnewCreate] = React.useState("");
   const [open, setOpen] = React.useState(false);
