@@ -4,7 +4,7 @@ import DarkModeIcon from "@mui/icons-material/DarkMode";
 import Stepperdecide from "./Stepperdecide";
 import LightModeIcon from "@mui/icons-material/LightMode";
 
-import { colorModeContext } from "./store/index";
+import { colorModeContext } from "../utilis/index";
 
 function Navbar() {
   const { mode, toggleMode } = useContext(colorModeContext);
