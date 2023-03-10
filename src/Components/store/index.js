@@ -30,7 +30,7 @@ export const ColorContextProvider = ({ children }) => {
           default: "#34393f",
           paper: "#3E4349",
         },
-        text: {
+        color: {
           default: "white",
         },
       }),
@@ -42,6 +42,9 @@ export const ColorContextProvider = ({ children }) => {
         backgroundColor: {
           default: "#cfcfe0",
           paper: "#D9D9E6",
+        },
+        color: {
+          default: "black",
         },
       }),
     },

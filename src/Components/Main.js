@@ -8,6 +8,7 @@ import {
   Alert,
   Grid,
   Stack,
+  createTheme,
 } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import React, { useState } from "react";
@@ -23,11 +24,14 @@ const style = {
   transform: "translate(-50%, -50%)",
   width: 600,
   height: 400,
-  bgcolor: "#D9D9E6",
+  color: 'color.default',
+  background:'background.default',
+  backgroundColor:'backgroundColor.default',
   boxShadow: 24,
   p: 4,
 };
 function Main() {
+  const theme=createTheme();
   const [create, setCreate] = React.useState("");
   const [newCreate, setnewCreate] = React.useState("");
   const [open, setOpen] = React.useState(false);
@@ -184,7 +188,7 @@ function Main() {
                     "3px 3px 6px rgb(0 0 0 / 25%), -3px -3px 6px rgb(255 255 255 / 6%)",
                 }}
               >
-                <QuestionMarkIcon />
+                <QuestionMarkIcon onClick={handleOpen} />
               </IconButton>
             </Tooltip>
           </Stack>
@@ -288,13 +292,13 @@ function Main() {
           At least two decision options are necessary!
         </Alert>
       </Box>
+      <Paper sx={{background:'background.default',
+      backgroundColor:'backgroundColor.default'}}>
       <Modal
         open={open}
         onClose={handleClose}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
-        sx={{background:"Background.default",
-        backgroundColor:"BackgroundColor.default",}}
       >
         <Box sx={style}>
           <IconButton
@@ -304,8 +308,6 @@ function Main() {
               position: "absolute",
               right: 8,
               top: 8,
-              backgroundColor: "BackgroundColor.default",
-              background: "Background.default",
               boxShadow:
                 "3px 3px 6px rgb(0 0 0 / 25%), -3px -3px 6px rgb(255 255 255 / 6%)",
             }}
@@ -318,14 +320,31 @@ function Main() {
           <Typography id="modal-modal-description" sx={{ mt: 2 }}>
             Write every decision option you need to decide for. For example, if
             you want to make an investment, your decision options may look like
-            this: .Invest in gold .Invest in shares .Invest in real state Take
-            some time to think about every other option "out of the box" that
-            may also exist. In case you have a binary decision (yes/no), you
-            should write two decision options. For example: Invest money Don't
-            invest money
+            this:
+          </Typography>
+          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+            .Invest in gold
+          </Typography>
+          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+            .Invest in shares
+          </Typography>
+          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+            .Invest in real state
+          </Typography>
+          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+            Take some time to think about every other option "out of the box"
+            that may also exist. In case you have a binary decision (yes/no),
+            you should write two decision options. For example:
+          </Typography>
+          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+            .Invest money
+          </Typography>
+          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+            .Don't invest money
           </Typography>
         </Box>
       </Modal>
+      </Paper>
     </>
   );
 }
