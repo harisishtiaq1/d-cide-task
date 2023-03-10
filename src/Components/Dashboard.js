@@ -131,7 +131,6 @@ function Main() {
               >
                 <Tooltip title="Write New Entry">
                   <TextField
-                    id="standard-basic"
                     placeholder="New Entry"
                     variant="standard"
                     sx={{ ml: 4, mt: 1, width: 300 }}
@@ -139,6 +138,12 @@ function Main() {
                     onChange={(e) => {
                       setCreate(e.target.value);
                     }}
+                    onKeyDown={(e)=>{
+                      if(e.key === "Enter"){
+                        handleButtonClick(create)
+                      }
+                    }
+                    }
                   />
                 </Tooltip>
                 <Tooltip title="Add Entry">
@@ -149,7 +154,6 @@ function Main() {
                       boxShadow:
                         "3px 3px 6px rgb(0 0 0 / 25%), -3px -3px 6px rgb(255 255 255 / 6%)",
                     }}
-                    
                     onClick={() => handleButtonClick(create)}
                     onChange={handleChange}
                     checked={checked}
@@ -249,6 +253,11 @@ function Main() {
                     onChange={(e) => {
                       setnewCreate(e.target.value);
                     }}
+                    onKeyPress={(event) => {
+                      if (event.key === "Enter") {
+                        handleButton1Click(newCreate);
+                      }
+                    }}
                   />
                 </Tooltip>
                 <Tooltip title="Add Entry">
@@ -261,6 +270,7 @@ function Main() {
                     }}
                     onClick={() => handleButton1Click(newCreate)}
                     onChange={newchecked}
+                    
                   >
                     <AddIcon />
                   </IconButton>
