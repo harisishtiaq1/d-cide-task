@@ -12,7 +12,6 @@ import {
 import CloseIcon from "@mui/icons-material/Close";
 import React, { useState } from "react";
 import DeleteIcon from "@mui/icons-material/Delete";
-// import LightModeIcon from "@mui/icons-material/LightMode";
 import QuestionMarkIcon from "@mui/icons-material/QuestionMark";
 import AddIcon from "@mui/icons-material/Add";
 import Modal from "@mui/material/Modal";
@@ -99,7 +98,7 @@ function Main() {
                 sx={{
                   height: 50,
                   color: "transparent",
-                  width: 350,
+                  width: 400,
                   borderRadius: "10px",
                   backgroundColor: "backgroundColor.paper",
                 }}
@@ -109,7 +108,7 @@ function Main() {
                     id="standard-basic"
                     placeholder="New Entry"
                     variant="standard"
-                    sx={{ ml: 4, mt: 1, width: 250 }}
+                    sx={{ ml: 4, mt: 1, width: 300 }}
                     value={create}
                     onChange={(e) => {
                       setCreate(e.target.value);
@@ -138,7 +137,7 @@ function Main() {
                         sx={{
                           height: 50,
                           color: "transparent",
-                          width: 350,
+                          width: 400,
                           borderRadius: "10px",
                           backgroundColor: "backgroundColor.paper",
                           mt: 3,
@@ -148,7 +147,7 @@ function Main() {
                           <TextField
                             id="standard-basic"
                             variant="standard"
-                            sx={{ ml: 4, mt: 1, width: 250 }}
+                            sx={{ ml: 4, mt: 1, width: 300 }}
                             value={Entry}
                           />
                         </Tooltip>
@@ -203,7 +202,7 @@ function Main() {
                 sx={{
                   height: 50,
                   color: "transparent",
-                  width: 350,
+                  width: 400,
                   borderRadius: "10px",
                   backgroundColor: "backgroundColor.paper",
                   mt: 3,
@@ -214,7 +213,7 @@ function Main() {
                     id="standard-basic"
                     variant="standard"
                     placeholder="New Entry"
-                    sx={{ ml: 4, mt: 1, width: 250 }}
+                    sx={{ ml: 4, mt: 1, width: 300 }}
                     value={newCreate}
                     onChange={(e) => {
                       setnewCreate(e.target.value);
@@ -243,7 +242,7 @@ function Main() {
                         sx={{
                           height: 50,
                           color: "transparent",
-                          width: 350,
+                          width: 400,
                           borderRadius: "10px",
                           backgroundColor: "backgroundColor.paper",
                         }}
@@ -252,7 +251,7 @@ function Main() {
                           <TextField
                             id="standard-basic"
                             variant="standard"
-                            sx={{ ml: 4, mt: 1, width: 250 }}
+                            sx={{ ml: 4, mt: 1, width: 300 }}
                             value={Entry}
                           />
                         </Tooltip>

@@ -6,7 +6,7 @@ import "../App.css";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import StepLabel from "@mui/material/StepLabel";
-import Main from "./Main";
+import Main from "./Dashboard";
 import WeightCritertia from "./WeightCritertia";
 import RateOptions from "./RateOptions";
 import Result from "./Result";
