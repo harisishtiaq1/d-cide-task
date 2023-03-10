@@ -20,12 +20,12 @@ function RateOptions() {
             Rate Options
           </Typography>
           <Tooltip title="Show Help">
-          <IconButton
+            <IconButton
               sx={{
                 ml: 2,
                 backgroundColor: "backgroundColor.default",
                 boxShadow:
-                "3px 3px 6px rgb(0 0 0 / 25%), -3px -3px 6px rgb(255 255 255 / 5%)",
+                  "3px 3px 6px rgb(0 0 0 / 25%), -3px -3px 6px rgb(255 255 255 / 5%)",
               }}
             >
               <QuestionMarkIcon />
@@ -33,9 +33,16 @@ function RateOptions() {
           </Tooltip>
         </Box>
       </Box>
-      <Box sx={{display:'flex',justifyContent:'space-around',alignItems:'center',margin:"0 auto"}}>
-      <Box>
-      <Paper
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "space-around",
+          alignItems: "center",
+          margin: "0 auto",
+        }}
+      >
+        <Box>
+          <Paper
             sx={{
               mt: 3,
               height: 100,
@@ -71,11 +78,21 @@ function RateOptions() {
                 sx={{ width: 200, ml: 2, mt: 2 }}
               ></Slider>
             </Box>
-            <Box sx={{display:'flex',justifyContent:'center',alignItems:'center'}}>
-                <Typography variant='p' component='p' sx={{color:'black',mt:2}}>
-                    This is important is this
-                </Typography>
-                </Box>
+            <Box
+              sx={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <Typography
+                variant="p"
+                component="p"
+                sx={{ color: "black", mt: 2 }}
+              >
+                This is important is this
+              </Typography>
+            </Box>
           </Paper>
           <Paper
             sx={{
@@ -113,14 +130,24 @@ function RateOptions() {
                 sx={{ width: 200, ml: 2, mt: 2 }}
               ></Slider>
             </Box>
-            <Box sx={{display:'flex',justifyContent:'center',alignItems:'center'}}>
-                <Typography variant='p' component='p' sx={{color:'black',mt:2}}>
-                    This is important is this
-                </Typography>
-                </Box>
+            <Box
+              sx={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <Typography
+                variant="p"
+                component="p"
+                sx={{ color: "black", mt: 2 }}
+              >
+                This is important is this
+              </Typography>
+            </Box>
           </Paper>
-          </Box>
-          <Box>
+        </Box>
+        <Box>
           <Paper
             sx={{
               mt: 3,
@@ -157,11 +184,21 @@ function RateOptions() {
                 sx={{ width: 200, ml: 2, mt: 2 }}
               ></Slider>
             </Box>
-            <Box sx={{display:'flex',justifyContent:'center',alignItems:'center'}}>
-                <Typography variant='p' component='p' sx={{color:'black',mt:2}}>
-                    This is important is this
-                </Typography>
-                </Box>
+            <Box
+              sx={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <Typography
+                variant="p"
+                component="p"
+                sx={{ color: "black", mt: 2 }}
+              >
+                This is important is this
+              </Typography>
+            </Box>
           </Paper>
           <Paper
             sx={{
@@ -199,16 +236,26 @@ function RateOptions() {
                 sx={{ width: 200, ml: 2, mt: 2 }}
               ></Slider>
             </Box>
-            <Box sx={{display:'flex',justifyContent:'center',alignItems:'center'}}>
-                <Typography variant='p' component='p' sx={{color:'black',mt:2}}>
-                    This is important is this
-                </Typography>
-                </Box>
+            <Box
+              sx={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <Typography
+                variant="p"
+                component="p"
+                sx={{ color: "black", mt: 2 }}
+              >
+                This is important is this
+              </Typography>
+            </Box>
           </Paper>
-          </Box>
-          </Box>
+        </Box>
+      </Box>
     </Container>
-  )
+  );
 }
 
-export default RateOptions
+export default RateOptions;
