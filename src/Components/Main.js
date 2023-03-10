@@ -299,6 +299,7 @@ function Main() {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
+          <Tooltip title="Close">
           <IconButton
             aria-label="close"
             onClick={handleClose}
@@ -312,6 +313,7 @@ function Main() {
           >
             <CloseIcon />
           </IconButton>
+          </Tooltip>
           <Typography id="modal-modal-title" variant="h6" component="h2">
             Decision Options
           </Typography>
