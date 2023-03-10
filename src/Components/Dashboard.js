@@ -10,9 +10,11 @@ import {
   Stack,
   ListItem,
   List,
+  Fade,
+  Snackbar
 } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
-import CircleIcon from '@mui/icons-material/Circle';
+import CircleIcon from "@mui/icons-material/Circle";
 import React, { useEffect, useState } from "react";
 import DeleteIcon from "@mui/icons-material/Delete";
 import QuestionMarkIcon from "@mui/icons-material/QuestionMark";
@@ -28,17 +30,28 @@ const style = {
   background: "background.default",
   backgroundColor: "backgroundColor.default",
   boxShadow: 24,
-  borderRadius:'20px',
+  borderRadius: "20px",
   p: 4,
 };
 function Main() {
+  const [checked, setChecked] = React.useState(true);
+  const handleChange = () => {
+    setChecked((prev) => !prev);
+  };
+  const [newchecked, setNewChecked] = React.useState(true);
+  const handlenewChange = () => {
+    setNewChecked((prev) => !prev);
+  };
   const [create, setCreate] = React.useState("");
   const [newCreate, setnewCreate] = React.useState("");
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-  const [Entries, setEntries] = useState([]);
-  const [newEntries, setNewEntries] = useState([]);
+  const [Entries, setEntries] = useState(
+    JSON.parse(localStorage.getItem('Entries') || [])
+  );
+  const [newEntries, setNewEntries] = useState(
+    JSON.parse(localStorage.getItem('newEntries') || []));
   const handleButtonClick = (Entry) => {
     setEntries((prevState) => [...prevState, Entry]);
     setCreate("");
@@ -57,11 +70,13 @@ function Main() {
     setNewEntries((prevState) => [...prevState, Entry]);
     setnewCreate("");
   };
+  useEffect(() => {
   localStorage.setItem("Entries",JSON.stringify(Entries));
-  console.log({ localStorage });
-  useEffect(()=>{
-    JSON.parse(localStorage.getItem("Entries"))
-  },[])
+  }, [Entries]);
+
+  useEffect(() => {
+  localStorage.setItem("newEntries",JSON.stringify(newEntries));
+  }, [newEntries]);
   return (
     <>
       <Grid container spacing={2}>
@@ -130,6 +145,8 @@ function Main() {
                         "3px 3px 6px rgb(0 0 0 / 25%), -3px -3px 6px rgb(255 255 255 / 6%)",
                     }}
                     onClick={() => handleButtonClick(create)}
+                    onChange={handleChange}
+                    checked={checked}
                   >
                     <AddIcon />
                   </IconButton>
@@ -139,38 +156,40 @@ function Main() {
                 {Entries &&
                   Entries.map((Entry, index) => {
                     return (
-                      <Paper
-                        sx={{
-                          height: 50,
-                          color: "transparent",
-                          width: 400,
-                          borderRadius: "10px",
-                          backgroundColor: "backgroundColor.paper",
-                          mt: 3,
-                        }}
-                      >
-                        <Tooltip title="Edit Entry">
-                          <TextField
-                            id="standard-basic"
-                            variant="standard"
-                            sx={{ ml: 4, mt: 1, width: 300 }}
-                            value={Entry}
-                          />
-                        </Tooltip>
-                        <Tooltip title="Delete Entry">
-                          <IconButton
-                            sx={{
-                              ml: 2,
-                              mt: 0.5,
-                              boxShadow:
-                                "3px 3px 6px rgb(0 0 0 / 25%), -3px -3px 6px rgb(255 255 255 / 6%)",
-                            }}
-                            onClick={() => handleDeleteButton(index)}
-                          >
-                            <DeleteIcon />
-                          </IconButton>
-                        </Tooltip>
-                      </Paper>
+                      <Fade in={checked}>
+                        <Paper
+                          sx={{
+                            height: 50,
+                            color: "transparent",
+                            width: 400,
+                            borderRadius: "10px",
+                            backgroundColor: "backgroundColor.paper",
+                            mt: 3,
+                          }}
+                        >
+                          <Tooltip title="Edit Entry">
+                            <TextField
+                              id="standard-basic"
+                              variant="standard"
+                              sx={{ ml: 4, mt: 1, width: 300 }}
+                              value={Entry}
+                            />
+                          </Tooltip>
+                          <Tooltip title="Delete Entry">
+                            <IconButton
+                              sx={{
+                                ml: 2,
+                                mt: 0.5,
+                                boxShadow:
+                                  "3px 3px 6px rgb(0 0 0 / 25%), -3px -3px 6px rgb(255 255 255 / 6%)",
+                              }}
+                              onClick={() => handleDeleteButton(index)}
+                            >
+                              <DeleteIcon />
+                            </IconButton>
+                          </Tooltip>
+                        </Paper>
+                      </Fade>
                     );
                   })}
               </Grid>
@@ -235,7 +254,7 @@ function Main() {
                         "3px 3px 6px rgb(0 0 0 / 25%), -3px -3px 6px rgb(255 255 255 / 6%)",
                     }}
                     onClick={() => handleButton1Click(newCreate)}
-                    
+                    onChange={newchecked}
                   >
                     <AddIcon />
                   </IconButton>
@@ -244,6 +263,7 @@ function Main() {
               {newEntries &&
                 newEntries.map((Entry, index) => {
                   return (
+                    <Fade in={handlenewChange}>
                     <Box sx={{ mt: 3 }}>
                       <Paper
                         sx={{
@@ -277,25 +297,21 @@ function Main() {
                         </Tooltip>
                       </Paper>
                     </Box>
+                    </Fade>
                   );
                 })}
             </Grid>
           </Grid>
         </Grid>
       </Grid>
-      <Box
-        sx={{
-          width: 400,
-          height: "300",
-          position: "absolute",
-          bottom: 20,
-          right: "35%",
-        }}
-      >
+      <Snackbar
+      anchorOrigin= {{vertical:"bottom",horizontal:'center'}}
+     open={true}
+        >
         <Alert sx={{ fontSize: "15px" }} severity="warning">
           At least two decision options are necessary!
         </Alert>
-      </Box>
+</Snackbar>      
       <Paper
         sx={{
           background: "background.default",
@@ -329,54 +345,52 @@ function Main() {
             </Typography>
             <Typography id="modal-modal-description" sx={{ mt: 2 }}>
               Write every decision option you need to decide for.
-              <Box component='br'/ 
-              >
-              For example,
-              if you want to make an investment, your decision options may look
-              like this:
+              <Box component="br" />
+              For example, if you want to make an investment, your decision
+              options may look like this:
             </Typography>
-           <List>
-            <ListItem>
-              <IconButton sx={{width:'20px'}}>
-                <CircleIcon sx={{fontSize:'10px'}}/>
-              </IconButton>
-              Invest In gold
-            </ListItem>
-            <ListItem>
-            <IconButton sx={{width:'20px'}}>
-                <CircleIcon sx={{fontSize:'10px'}}/>
-              </IconButton>
-              Invest In Shares
-            </ListItem>
-            <ListItem>
-            <IconButton sx={{width:'20px'}}>
-                <CircleIcon sx={{fontSize:'10px'}}/>
-              </IconButton>
-              Invest In Real Estate
-            </ListItem>
-           </List>
+            <List>
+              <ListItem>
+                <IconButton sx={{ width: "20px" }}>
+                  <CircleIcon sx={{ fontSize: "10px" }} />
+                </IconButton>
+                Invest In gold
+              </ListItem>
+              <ListItem>
+                <IconButton sx={{ width: "20px" }}>
+                  <CircleIcon sx={{ fontSize: "10px" }} />
+                </IconButton>
+                Invest In Shares
+              </ListItem>
+              <ListItem>
+                <IconButton sx={{ width: "20px" }}>
+                  <CircleIcon sx={{ fontSize: "10px" }} />
+                </IconButton>
+                Invest In Real Estate
+              </ListItem>
+            </List>
             <Typography id="modal-modal-description" sx={{ mt: 2 }}>
               Take some time to think about every other option "out of the box"
               that may also exist.
-              <Box component='br'/>
-              <Box component='br'/> 
-              In case you have a binary decision (yes/no),
-              you should write two decision options. For example:
+              <Box component="br" />
+              <Box component="br" />
+              In case you have a binary decision (yes/no), you should write two
+              decision options. For example:
             </Typography>
             <List>
-            <ListItem>
-              <IconButton sx={{width:'20px'}}>
-                <CircleIcon sx={{fontSize:'10px'}}/>
-              </IconButton>
-              Invest Money
-            </ListItem>
-            <ListItem>
-            <IconButton sx={{width:'20px'}}>
-                <CircleIcon sx={{fontSize:'10px'}}/>
-              </IconButton>
-              Do not Invest Money
-            </ListItem>
-           </List>
+              <ListItem>
+                <IconButton sx={{ width: "20px" }}>
+                  <CircleIcon sx={{ fontSize: "10px" }} />
+                </IconButton>
+                Invest Money
+              </ListItem>
+              <ListItem>
+                <IconButton sx={{ width: "20px" }}>
+                  <CircleIcon sx={{ fontSize: "10px" }} />
+                </IconButton>
+                Do not Invest Money
+              </ListItem>
+            </List>
           </Box>
         </Modal>
       </Paper>
