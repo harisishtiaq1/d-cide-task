@@ -138,12 +138,11 @@ function Main() {
                     onChange={(e) => {
                       setCreate(e.target.value);
                     }}
-                    onKeyDown={(e)=>{
-                      if(e.key === "Enter"){
-                        handleButtonClick(create)
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter") {
+                        handleButtonClick(create);
                       }
-                    }
-                    }
+                    }}
                   />
                 </Tooltip>
                 <Tooltip title="Add Entry">
@@ -270,7 +269,6 @@ function Main() {
                     }}
                     onClick={() => handleButton1Click(newCreate)}
                     onChange={newchecked}
-                    
                   >
                     <AddIcon />
                   </IconButton>
@@ -320,14 +318,27 @@ function Main() {
           </Grid>
         </Grid>
       </Grid>
-      <Snackbar
-        anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
-        open={true}
-      >
-        <Alert sx={{ fontSize: "15px" }} severity="warning">
-          At least two decision options are necessary!
-        </Alert>
-      </Snackbar>
+      {newEntries.length < 2 && (
+        <Snackbar
+          anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+          open={true}
+        >
+          <Alert sx={{ fontSize: "15px" }} severity="warning">
+            At least two Selection Criteria are necessary!
+          </Alert>
+        </Snackbar>
+      )}
+      {Entries.length < 2 && (
+        <Snackbar
+          anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+          open={true}
+        >
+          <Alert sx={{ fontSize: "15px" }} severity="warning">
+            At least two Decision options are necessary!
+          </Alert>
+        </Snackbar>
+      )}
+
       <Paper
         sx={{
           background: "background.default",
