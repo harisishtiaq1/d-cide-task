@@ -15,7 +15,7 @@ import {
 } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import CircleIcon from "@mui/icons-material/Circle";
-import React, { useEffect} from "react";
+import React, { useEffect } from "react";
 import DeleteIcon from "@mui/icons-material/Delete";
 import QuestionMarkIcon from "@mui/icons-material/QuestionMark";
 import AddIcon from "@mui/icons-material/Add";
@@ -33,7 +33,7 @@ const style = {
   borderRadius: "20px",
   p: 4,
 };
-function Main() {
+function Main({ handleTrigger }) {
   const [checked, setChecked] = React.useState(true);
   const handleChange = () => {
     setChecked((prev) => !prev);
@@ -50,7 +50,7 @@ function Main() {
   const [Entries, setEntries] = React.useState(
     JSON.parse(localStorage.getItem("Entries") || [])
   );
-  const [newEntries, setNewEntries] =React.useState(
+  const [newEntries, setNewEntries] = React.useState(
     JSON.parse(localStorage.getItem("newEntries") || [])
   );
   const handleButtonClick = (Entry) => {
@@ -82,6 +82,8 @@ function Main() {
   useEffect(() => {
     localStorage.setItem("newEntries", JSON.stringify(newEntries));
   }, [newEntries]);
+  if (Entries.length >= 2 && newEntries.length >= 2) handleTrigger(true);
+  else handleTrigger(false);
   return (
     <>
       <Grid container spacing={2}>

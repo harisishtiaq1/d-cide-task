@@ -7,7 +7,7 @@ import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import StepLabel from "@mui/material/StepLabel";
 import Main from "./Dashboard";
-import WeightCritertia from "./WeightCritertia";
+import WeightCritertia from "./WeightCriteria";
 import RateOptions from "./RateOptions";
 import Result from "./Result";
 const steps = [
@@ -17,10 +17,10 @@ const steps = [
   "Result",
 ];
 
-function getStepContent(step) {
+function getStepContent(step, handleTrigger) {
   switch (step) {
     case 0:
-      return <Main />;
+      return <Main handleTrigger={handleTrigger} />;
     case 1:
       return <WeightCritertia />;
     case 2:
@@ -33,29 +33,35 @@ function getStepContent(step) {
 }
 
 function Checkout() {
+  const [trigger, setTrigger] = React.useState(false);
   const [Entries] = React.useState(
     JSON.parse(localStorage.getItem("Entries") || [])
   );
-  const [newEntries] =React.useState(
+  const [newEntries] = React.useState(
     JSON.parse(localStorage.getItem("newEntries") || [])
   );
   React.useEffect(() => {
     localStorage.setItem("Entries", JSON.stringify(Entries));
   }, [Entries]);
+  React.useEffect(() => {}, [Entries]);
 
   React.useEffect(() => {
     localStorage.setItem("newEntries", JSON.stringify(newEntries));
   }, [newEntries]);
+  React.useEffect(() => {}, [newEntries]);
   const [activeStep, setActiveStep] = React.useState(0);
 
   const handleNext = () => {
     setActiveStep(activeStep + 1);
   };
+  const handleTrigger = (value) => {
+    setTrigger(value);
+  };
 
   const handleBack = () => {
     setActiveStep(activeStep - 1);
   };
-
+  console.log("trigger here: ", trigger);
   return (
     <>
       <Box
@@ -75,7 +81,7 @@ function Checkout() {
           </Stepper>
         </Container>
       </Box>
-      {activeStep < 3 && Entries.length >=2 && newEntries.length >=2 ? (
+      {activeStep <3 && trigger ? (
         <Tooltip title="Next Step">
           <IconButton
             fontSize="large"
@@ -95,24 +101,26 @@ function Checkout() {
             <ArrowForwardIcon fontSize="large" onClick={handleNext} />
           </IconButton>
         </Tooltip>
-      ):(<IconButton
-        fontSize="large"
-        sx={{
-          cursor: "pointer",
-          backgroundColor: "BackgroundColor.default",
-          mr: 4,
-          mt: 2,
-          borderRadius: "50%",
-          position: "absolute",
-          bottom: 30,
-          right: 0,
-          boxShadow:
-            "3px 3px 6px rgb(0 0 0 / 25%), -3px -3px 6px rgb(255 255 255 / 5%)",
-        }}
-        disabled
-      >
-        <ArrowForwardIcon fontSize="large" onClick={handleNext} />
-      </IconButton>)}
+      ) : (
+        <IconButton
+          fontSize="large"
+          sx={{
+            cursor: "pointer",
+            backgroundColor: "BackgroundColor.default",
+            mr: 4,
+            mt: 2,
+            borderRadius: "50%",
+            position: "absolute",
+            bottom: 30,
+            right: 0,
+            boxShadow:
+              "3px 3px 6px rgb(0 0 0 / 25%), -3px -3px 6px rgb(255 255 255 / 5%)",
+          }}
+          disabled
+        >
+          <ArrowForwardIcon fontSize="large" onClick={handleNext} />
+        </IconButton>
+      )}
       {activeStep > 0 && (
         <Tooltip title="Previous Step">
           <IconButton
@@ -135,7 +143,7 @@ function Checkout() {
         </Tooltip>
       )}
       {/* <WeightCritertia/> */}
-      {getStepContent(activeStep)}
+      {getStepContent(activeStep, handleTrigger)}
     </>
   );
 }

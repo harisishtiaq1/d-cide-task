@@ -44,7 +44,7 @@ function WeightCritertia() {
           >
             <Box sx={{ display: "flex", justifyContent: "space-around" }}>
               <Typography component="p" variant="p" sx={{ color: "black" }}>
-                Haris
+                filter
               </Typography>
               <Typography component="p" variant="p" sx={{ color: "black" }}>
                 Haris
