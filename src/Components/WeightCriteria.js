@@ -89,15 +89,15 @@ function WeightCritertia() {
                 }}
               >
                 <Slider
-                  aria-label="Temperature"
-                  defaultValue={30}
                   valueLabelDisplay="auto"
                   step={10}
                   marks
                   min={10}
-                  max={70}
+                  max={90}
                   sx={{ width: 400, ml: 2, mt: 2 }}
-                ></Slider>
+                >
+                  
+                </Slider>
               </Box>
               <Box
                 sx={{
