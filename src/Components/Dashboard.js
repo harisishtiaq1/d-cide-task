@@ -15,7 +15,7 @@ import {
 } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import CircleIcon from "@mui/icons-material/Circle";
-import React, { useEffect, useState } from "react";
+import React, { useEffect} from "react";
 import DeleteIcon from "@mui/icons-material/Delete";
 import QuestionMarkIcon from "@mui/icons-material/QuestionMark";
 import AddIcon from "@mui/icons-material/Add";
@@ -47,10 +47,10 @@ function Main() {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-  const [Entries, setEntries] = useState(
+  const [Entries, setEntries] = React.useState(
     JSON.parse(localStorage.getItem("Entries") || [])
   );
-  const [newEntries, setNewEntries] = useState(
+  const [newEntries, setNewEntries] =React.useState(
     JSON.parse(localStorage.getItem("newEntries") || [])
   );
   const handleButtonClick = (Entry) => {

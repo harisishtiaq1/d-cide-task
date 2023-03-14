@@ -33,6 +33,19 @@ function getStepContent(step) {
 }
 
 function Checkout() {
+  const [Entries] = React.useState(
+    JSON.parse(localStorage.getItem("Entries") || [])
+  );
+  const [newEntries] =React.useState(
+    JSON.parse(localStorage.getItem("newEntries") || [])
+  );
+  React.useEffect(() => {
+    localStorage.setItem("Entries", JSON.stringify(Entries));
+  }, [Entries]);
+
+  React.useEffect(() => {
+    localStorage.setItem("newEntries", JSON.stringify(newEntries));
+  }, [newEntries]);
   const [activeStep, setActiveStep] = React.useState(0);
 
   const handleNext = () => {
@@ -62,13 +75,13 @@ function Checkout() {
           </Stepper>
         </Container>
       </Box>
-      {activeStep < 3 && (
+      {activeStep < 3 && Entries.length >=2 && newEntries.length >=2 ? (
         <Tooltip title="Next Step">
           <IconButton
             fontSize="large"
             sx={{
               cursor: "pointer",
-              backgroundColor: "BackgroundColor.default",
+              backgroundColor: "lightblue",
               mr: 4,
               mt: 2,
               borderRadius: "50%",
@@ -82,7 +95,24 @@ function Checkout() {
             <ArrowForwardIcon fontSize="large" onClick={handleNext} />
           </IconButton>
         </Tooltip>
-      )}
+      ):(<IconButton
+        fontSize="large"
+        sx={{
+          cursor: "pointer",
+          backgroundColor: "BackgroundColor.default",
+          mr: 4,
+          mt: 2,
+          borderRadius: "50%",
+          position: "absolute",
+          bottom: 30,
+          right: 0,
+          boxShadow:
+            "3px 3px 6px rgb(0 0 0 / 25%), -3px -3px 6px rgb(255 255 255 / 5%)",
+        }}
+        disabled
+      >
+        <ArrowForwardIcon fontSize="large" onClick={handleNext} />
+      </IconButton>)}
       {activeStep > 0 && (
         <Tooltip title="Previous Step">
           <IconButton
