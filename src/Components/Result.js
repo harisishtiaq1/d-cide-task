@@ -23,6 +23,12 @@ function Result() {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+  const [Entries] = React.useState(
+    JSON.parse(localStorage.getItem("Entries") || [])
+  );
+  const [newEntries] = React.useState(
+    JSON.parse(localStorage.getItem("newEntries") || [])
+  );
   return (
     <>
       <Container>
@@ -73,18 +79,24 @@ function Result() {
                     </IconButton>
                   </Tooltip>
                 </Box>
-                {/* <Box>
-                  <Stack>
 
-                  </Stack>
-                </Box> */}
-                <Box sx={{ display: "flex", ml: 10 }}>
-                  <div className="box"></div>
-                  <div className="box"></div>
-                  <div className="box"></div>
-                  <div className="box"></div>
-                  <div className="box"></div>
+                <Box sx={{ display: "flex", ml: 8 }}>
+                  <Box sx={{display:'flex',flexDirection:'column'}}>
+                <Typography sx={{ color: "black", fontSize: "20px" }}>
+                  {Entries[1]}
+                </Typography>
+                <Typography sx={{ color: "black", fontSize: "20px",mt:10 }}>
+                  {Entries[0]}
+                </Typography>
                 </Box>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  
+                </Box>
+                
               </Paper>
             </Grid>
             <Grid item sx={12}>
@@ -106,7 +118,7 @@ function Result() {
                   }}
                 >
                   <Typography
-                    sx={{ color: "color.default", mt: 4 }}
+                    sx={{ color: "color.default",  }}
                     component="h1"
                     variant="h5"
                   >
@@ -126,12 +138,21 @@ function Result() {
                     </IconButton>
                   </Tooltip>
                 </Box>
-                <Box sx={{ display: "flex", ml: 10 }}>
+                <Box sx={{ display: "flex", ml: 8 }}>
+                  <Box sx={{display:'flex',flexDirection:'column'}}>
+                <Typography sx={{ color: "black", fontSize: "20px" }}>
+                  {newEntries[1]}
+                </Typography>
+                <Typography sx={{ color: "black", fontSize: "20px",mt:10 }}>
+                {newEntries[0]}
+                </Typography>
+                </Box>
                   <div className="box"></div>
                   <div className="box"></div>
                   <div className="box"></div>
                   <div className="box"></div>
                   <div className="box"></div>
+                  
                 </Box>
               </Paper>
             </Grid>
