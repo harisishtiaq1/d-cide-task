@@ -1,10 +1,11 @@
-import { Box, Container, Grid, Paper,  Typography } from "@mui/material";
+import { Box, Container, Grid, Paper, Typography } from "@mui/material";
 import React from "react";
 import { Tooltip, IconButton } from "@mui/material";
 import QuestionMarkIcon from "@mui/icons-material/QuestionMark";
 import { Modal, ListItem, List } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import CircleIcon from "@mui/icons-material/Circle";
+import "./css/Result.css"
 const style = {
   position: "absolute",
   top: "50%",
@@ -77,8 +78,18 @@ function Result() {
 
                   </Stack>
                 </Box> */}
+                <Box sx={{display:'flex',ml:10}}>
+                <div className="box">
+                </div>
+                <div className="box">
+                </div>
+                <div className="box">
+                </div><div className="box">
+                </div>
+                <div className="box">
+                </div>
+                </Box>
               </Paper>
-                
             </Grid>
             <Grid item sx={12}>
               <Paper
@@ -118,6 +129,17 @@ function Result() {
                       <QuestionMarkIcon onClick={handleOpen} />
                     </IconButton>
                   </Tooltip>
+                </Box>
+                <Box sx={{display:'flex',ml:10}}>
+                <div className="box">
+                </div>
+                <div className="box">
+                </div>
+                <div className="box">
+                </div><div className="box">
+                </div>
+                <div className="box">
+                </div>
                 </Box>
               </Paper>
             </Grid>
