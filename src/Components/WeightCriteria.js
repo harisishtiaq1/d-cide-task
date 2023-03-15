@@ -42,7 +42,7 @@ function WeightCritertia() {
       " is more important than ",
       " is way more important than ",
     ];
-    let scaledValue = "";
+    let scaledValue;
     if (value < 4) {
       scaledValue = newEntries[1] + data[value] + newEntries[0];
     }
