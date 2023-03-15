@@ -5,7 +5,7 @@ import QuestionMarkIcon from "@mui/icons-material/QuestionMark";
 import { Modal, ListItem, List } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import CircleIcon from "@mui/icons-material/Circle";
-import "./css/Result.css"
+import "./css/Result.css";
 const style = {
   position: "absolute",
   top: "50%",
@@ -78,16 +78,12 @@ function Result() {
 
                   </Stack>
                 </Box> */}
-                <Box sx={{display:'flex',ml:10}}>
-                <div className="box">
-                </div>
-                <div className="box">
-                </div>
-                <div className="box">
-                </div><div className="box">
-                </div>
-                <div className="box">
-                </div>
+                <Box sx={{ display: "flex", ml: 10 }}>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
                 </Box>
               </Paper>
             </Grid>
@@ -130,16 +126,12 @@ function Result() {
                     </IconButton>
                   </Tooltip>
                 </Box>
-                <Box sx={{display:'flex',ml:10}}>
-                <div className="box">
-                </div>
-                <div className="box">
-                </div>
-                <div className="box">
-                </div><div className="box">
-                </div>
-                <div className="box">
-                </div>
+                <Box sx={{ display: "flex", ml: 10 }}>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
                 </Box>
               </Paper>
             </Grid>
