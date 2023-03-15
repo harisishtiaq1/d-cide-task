@@ -90,21 +90,21 @@ function WeightCritertia() {
                 color: "transparent",
                 width: 450,
                 borderRadius: "10px",
-                backgroundColor: "#D9D9E6",
+                backgroundColor: "backgroundColor.paper",
               }}
             >
               <Box sx={{ display: "flex", justifyContent: "space-around" }}>
                 <Typography
                   component="p"
                   variant="p"
-                  sx={{ color: "black", textTransform: "uppercase" }}
+                  sx={{ color: "color.default", textTransform: "uppercase" }}
                 >
                   {newEntries[1]}
                 </Typography>
                 <Typography
                   component="p"
                   variant="p"
-                  sx={{ color: "black", textTransform: "uppercase" }}
+                  sx={{ color: "color.default", textTransform: "uppercase" }}
                 >
                   {newEntries[0]}
                 </Typography>
@@ -140,7 +140,7 @@ function WeightCritertia() {
                 <Typography
                   variant="p"
                   component="p"
-                  sx={{ color: "black", mt: 2 }}
+                  sx={{ color: "color.default", mt: 2 }}
                 >
                   {valueLabelFormat([value])}
                 </Typography>

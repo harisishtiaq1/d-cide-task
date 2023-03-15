@@ -15,10 +15,10 @@ function Navbar() {
       <Box sx={{ display: "flex", justifyContent: "space-between" }}>
         <Typography
           sx={{
-            color: "rgb(15, 97, 160)",
+            color: "icon.default",
             mt: 2,
             ml: 3,
-            fontSize: 30,
+            fontSize: 40,
             height: "60%",
             maxWidth: "136px",
           }}

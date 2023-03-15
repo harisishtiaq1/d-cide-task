@@ -23,10 +23,10 @@ function RateOptions() {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-  const [Entries, setEntries] = React.useState(
+  const [Entries] = React.useState(
     JSON.parse(localStorage.getItem("Entries") || [])
   );
-  const [newEntries, setNewEntries] = React.useState(
+  const [newEntries] = React.useState(
     JSON.parse(localStorage.getItem("newEntries") || [])
   );
   return (
@@ -74,11 +74,11 @@ function RateOptions() {
                 color: "transparent",
                 width: 400,
                 borderRadius: "10px",
-                backgroundColor: "#D9D9E6",
+                backgroundColor: "backgroundColor.paper"
               }}
             >
               <Box sx={{ display: "flex", justifyContent: "space-around" }}>
-                <Typography component="p" variant="p" sx={{ color: "black" }}>
+                <Typography component="p" variant="p" sx={{ color: "color.default" }}>
                   {newEntries[1]}
                 </Typography>
               </Box>
@@ -90,26 +90,32 @@ function RateOptions() {
                   flexDirection: "column",
                 }}
               >
-                <Slider
-                  aria-label="Temperature"
-                  defaultValue={30}
-                  valueLabelDisplay="auto"
-                  step={10}
-                  marks
-                  min={10}
-                  max={70}
-                  sx={{ width: 200, ml: 2, mt: 5 }}
-                ></Slider>
-                <Slider
-                  aria-label="Temperature"
-                  defaultValue={30}
-                  valueLabelDisplay="auto"
-                  step={10}
-                  marks
-                  min={10}
-                  max={70}
-                  sx={{ width: 200, ml: 2, mt: 5 }}
-                ></Slider>
+                <Box sx={{display:'flex',mt:5}}>
+                  <Typography sx={{ color: "color.default" }}>{Entries[0]}</Typography>
+                  <Slider
+                    aria-label="Temperature"
+                    defaultValue={30}
+                    valueLabelDisplay="auto"
+                    step={10}
+                    marks
+                    min={10}
+                    max={70}
+                    sx={{ width: 200, ml: 2}}
+                  ></Slider>
+                </Box>
+                <Box sx={{display:'flex',mt:5}}>
+                  <Typography sx={{ color: "color.default" }}>{Entries[1]}</Typography>
+                  <Slider
+                    aria-label="Temperature"
+                    defaultValue={30}
+                    valueLabelDisplay="auto"
+                    step={10}
+                    marks
+                    min={10}
+                    max={70}
+                    sx={{ width: 200, ml: 2}}
+                  ></Slider>
+                </Box>
               </Box>
             </Paper>
           </Box>
@@ -121,11 +127,11 @@ function RateOptions() {
                 color: "transparent",
                 width: 400,
                 borderRadius: "10px",
-                backgroundColor: "#D9D9E6",
+                backgroundColor: "backgroundColor.paper"
               }}
             >
               <Box sx={{ display: "flex", justifyContent: "space-around" }}>
-                <Typography component="p" variant="p" sx={{ color: "black" }}>
+                <Typography component="p" variant="p" sx={{ color: "color.default" }}>
                   {newEntries[0]}
                 </Typography>
               </Box>
@@ -137,26 +143,32 @@ function RateOptions() {
                   flexDirection: "column",
                 }}
               >
-                <Slider
-                  aria-label="Temperature"
-                  defaultValue={30}
-                  valueLabelDisplay="auto"
-                  step={10}
-                  marks
-                  min={10}
-                  max={70}
-                  sx={{ width: 200, ml: 2, mt: 5 }}
-                ></Slider>
-                <Slider
-                  aria-label="Temperature"
-                  defaultValue={30}
-                  valueLabelDisplay="auto"
-                  step={10}
-                  marks
-                  min={10}
-                  max={70}
-                  sx={{ width: 200, ml: 2, mt: 5 }}
-                ></Slider>
+               <Box sx={{display:'flex',mt:5}}>
+                  <Typography sx={{ color: "color.default" }}>{Entries[0]}</Typography>
+                  <Slider
+                    aria-label="Temperature"
+                    defaultValue={30}
+                    valueLabelDisplay="auto"
+                    step={10}
+                    marks
+                    min={10}
+                    max={70}
+                    sx={{ width: 200, ml: 2}}
+                  ></Slider>
+                </Box>
+                <Box sx={{display:'flex',mt:5}}>
+                  <Typography sx={{ color: "color.default" }}>{Entries[1]}</Typography>
+                  <Slider
+                    aria-label="Temperature"
+                    defaultValue={30}
+                    valueLabelDisplay="auto"
+                    step={10}
+                    marks
+                    min={10}
+                    max={70}
+                    sx={{ width: 200, ml: 2}}
+                  ></Slider>
+                </Box>
               </Box>
             </Paper>
           </Box>
