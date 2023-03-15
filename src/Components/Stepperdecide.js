@@ -75,8 +75,7 @@ function Checkout() {
               pt: 3,
               pb: 5,
               "& .MuiStepIcon-root": {
-                boxShadow:
-                  "3px 3px 7px rgba(0, 0, 0, 0.4), -3px -3px 7px rgba(255, 255, 255, 0.6)",
+                boxShadow: "3px 3px 7px rgba(0, 0, 0, 0.4)",
                 color: "#686870",
                 display: "block",
                 borderRadius: "50%",
@@ -104,13 +103,13 @@ function Checkout() {
           </Stepper>
         </Container>
       </Box>
-      {activeStep < 3 && trigger ? (
+      {trigger ? (
         <Tooltip title="Next Step">
           <IconButton
             fontSize="large"
             sx={{
               cursor: "pointer",
-              backgroundColor: "lightblue",
+              backgroundColor: "#0c4e80",
               mr: 4,
               mt: 2,
               borderRadius: "50%",
@@ -119,9 +118,17 @@ function Checkout() {
               right: 0,
               boxShadow:
                 "3px 3px 6px rgb(0 0 0 / 25%), -3px -3px 6px rgb(255 255 255 / 5%)",
+              "&:hover": {
+                backgroundColor: "#0c4e80",
+              },
+              display: activeStep < 3 ? "" : "none",
             }}
           >
-            <ArrowForwardIcon fontSize="large" onClick={handleNext} />
+            <ArrowForwardIcon
+              sx={{ color: "white" }}
+              fontSize="large"
+              onClick={handleNext}
+            />
           </IconButton>
         </Tooltip>
       ) : (
@@ -129,7 +136,7 @@ function Checkout() {
           fontSize="large"
           sx={{
             cursor: "pointer",
-            backgroundColor: "BackgroundColor.default",
+            backgroundColor: "#0c4e80",
             mr: 4,
             mt: 2,
             borderRadius: "50%",
@@ -141,7 +148,11 @@ function Checkout() {
           }}
           disabled
         >
-          <ArrowForwardIcon fontSize="large" onClick={handleNext} />
+          <ArrowForwardIcon
+            sx={{ color: "white" }}
+            fontSize="large"
+            onClick={handleNext}
+          />
         </IconButton>
       )}
       {activeStep > 0 && (
@@ -150,7 +161,7 @@ function Checkout() {
             fontSize="large"
             sx={{
               cursor: "pointer",
-              backgroundColor: "BackgroundColor.default",
+              backgroundColor: "#0c4e80",
               mr: 4,
               mt: 2,
               borderRadius: "50%",
@@ -159,9 +170,16 @@ function Checkout() {
               left: 20,
               boxShadow:
                 "3px 3px 6px rgb(0 0 0 / 25%), -3px -3px 6px rgb(255 255 255 / 5%)",
+              "&:hover": {
+                backgroundColor: "#0c4e80",
+              },
             }}
           >
-            <ArrowBackIcon fontSize="large" onClick={handleBack} />
+            <ArrowBackIcon
+              sx={{ color: "white" }}
+              fontSize="large"
+              onClick={handleBack}
+            />
           </IconButton>
         </Tooltip>
       )}

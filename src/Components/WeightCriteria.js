@@ -43,7 +43,7 @@ function WeightCritertia() {
       " is way more important than ",
     ];
     let scaledValue;
-    if (value < 4) {
+    if (value <= 4) {
       scaledValue = newEntries[1] + data[value] + newEntries[0];
     }
     if (value >= 4) {
@@ -118,7 +118,7 @@ function WeightCritertia() {
                   valueLabelDisplay="auto"
                   step={1}
                   marks
-                  min={1}
+                  min={0}
                   max={6}
                   sx={{ width: 400, ml: 2, mt: 2 }}
                   onChange={handleChange}
