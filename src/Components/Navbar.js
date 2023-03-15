@@ -13,6 +13,7 @@ function Navbar() {
   return (
     <>
       <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+        
         <Typography
           sx={{
             color: "icon.default",

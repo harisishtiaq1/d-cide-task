@@ -119,7 +119,6 @@ function WeightCritertia() {
                   step={1}
                   marks
                   min={1}
-                  defaultValue={3}
                   max={6}
                   sx={{ width: 400, ml: 2, mt: 2 }}
                   onChange={handleChange}

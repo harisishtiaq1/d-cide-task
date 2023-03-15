@@ -76,7 +76,7 @@ function Checkout() {
               pb: 5,
               "& .MuiStepIcon-root": {
                 boxShadow:
-                  "4px 4px 8px rgba(0, 0, 0, 0.4), -4px -4px 8px rgba(255, 255, 255, 0.6)",
+                  "3px 3px 7px rgba(0, 0, 0, 0.4), -3px -3px 7px rgba(255, 255, 255, 0.6)",
                 color: "#686870",
                 display: "block",
                 borderRadius: "50%",
@@ -89,6 +89,11 @@ function Checkout() {
                 background: "white",
                 borderRadius: "50%",
               },
+               "& .MuiStepIcon-text":{
+                fill: '#fafafa',
+                fontSize: '14px',
+                fontFamily: 'Quicksand,Calibri,sans-serif'
+               }
             }}
           >
             {steps.map((label) => (
