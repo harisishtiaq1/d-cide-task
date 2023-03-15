@@ -89,11 +89,11 @@ function Checkout() {
                 background: "white",
                 borderRadius: "50%",
               },
-               "& .MuiStepIcon-text":{
-                fill: '#fafafa',
-                fontSize: '14px',
-                fontFamily: 'Quicksand,Calibri,sans-serif'
-               }
+              "& .MuiStepIcon-text": {
+                fill: "#fafafa",
+                fontSize: "14px",
+                fontFamily: "Quicksand,Calibri,sans-serif",
+              },
             }}
           >
             {steps.map((label) => (

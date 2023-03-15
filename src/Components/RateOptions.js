@@ -74,11 +74,15 @@ function RateOptions() {
                 color: "transparent",
                 width: 400,
                 borderRadius: "10px",
-                backgroundColor: "backgroundColor.paper"
+                backgroundColor: "backgroundColor.paper",
               }}
             >
               <Box sx={{ display: "flex", justifyContent: "space-around" }}>
-                <Typography component="p" variant="p" sx={{ color: "color.default" }}>
+                <Typography
+                  component="p"
+                  variant="p"
+                  sx={{ color: "color.default" }}
+                >
                   {newEntries[1]}
                 </Typography>
               </Box>
@@ -90,8 +94,10 @@ function RateOptions() {
                   flexDirection: "column",
                 }}
               >
-                <Box sx={{display:'flex',mt:5}}>
-                  <Typography sx={{ color: "color.default" }}>{Entries[0]}</Typography>
+                <Box sx={{ display: "flex", mt: 5 }}>
+                  <Typography sx={{ color: "color.default" }}>
+                    {Entries[0]}
+                  </Typography>
                   <Slider
                     aria-label="Temperature"
                     defaultValue={30}
@@ -100,11 +106,13 @@ function RateOptions() {
                     marks
                     min={10}
                     max={70}
-                    sx={{ width: 200, ml: 2}}
+                    sx={{ width: 200, ml: 2 }}
                   ></Slider>
                 </Box>
-                <Box sx={{display:'flex',mt:5}}>
-                  <Typography sx={{ color: "color.default" }}>{Entries[1]}</Typography>
+                <Box sx={{ display: "flex", mt: 5 }}>
+                  <Typography sx={{ color: "color.default" }}>
+                    {Entries[1]}
+                  </Typography>
                   <Slider
                     aria-label="Temperature"
                     defaultValue={30}
@@ -113,7 +121,7 @@ function RateOptions() {
                     marks
                     min={10}
                     max={70}
-                    sx={{ width: 200, ml: 2}}
+                    sx={{ width: 200, ml: 2 }}
                   ></Slider>
                 </Box>
               </Box>
@@ -127,11 +135,15 @@ function RateOptions() {
                 color: "transparent",
                 width: 400,
                 borderRadius: "10px",
-                backgroundColor: "backgroundColor.paper"
+                backgroundColor: "backgroundColor.paper",
               }}
             >
               <Box sx={{ display: "flex", justifyContent: "space-around" }}>
-                <Typography component="p" variant="p" sx={{ color: "color.default" }}>
+                <Typography
+                  component="p"
+                  variant="p"
+                  sx={{ color: "color.default" }}
+                >
                   {newEntries[0]}
                 </Typography>
               </Box>
@@ -143,8 +155,10 @@ function RateOptions() {
                   flexDirection: "column",
                 }}
               >
-               <Box sx={{display:'flex',mt:5}}>
-                  <Typography sx={{ color: "color.default" }}>{Entries[0]}</Typography>
+                <Box sx={{ display: "flex", mt: 5 }}>
+                  <Typography sx={{ color: "color.default" }}>
+                    {Entries[0]}
+                  </Typography>
                   <Slider
                     aria-label="Temperature"
                     defaultValue={30}
@@ -153,11 +167,13 @@ function RateOptions() {
                     marks
                     min={10}
                     max={70}
-                    sx={{ width: 200, ml: 2}}
+                    sx={{ width: 200, ml: 2 }}
                   ></Slider>
                 </Box>
-                <Box sx={{display:'flex',mt:5}}>
-                  <Typography sx={{ color: "color.default" }}>{Entries[1]}</Typography>
+                <Box sx={{ display: "flex", mt: 5 }}>
+                  <Typography sx={{ color: "color.default" }}>
+                    {Entries[1]}
+                  </Typography>
                   <Slider
                     aria-label="Temperature"
                     defaultValue={30}
@@ -166,7 +182,7 @@ function RateOptions() {
                     marks
                     min={10}
                     max={70}
-                    sx={{ width: 200, ml: 2}}
+                    sx={{ width: 200, ml: 2 }}
                   ></Slider>
                 </Box>
               </Box>
