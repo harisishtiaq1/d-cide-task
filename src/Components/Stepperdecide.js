@@ -81,7 +81,7 @@ function Checkout() {
           </Stepper>
         </Container>
       </Box>
-      {activeStep <3 && trigger ? (
+      {activeStep < 3 && trigger ? (
         <Tooltip title="Next Step">
           <IconButton
             fontSize="large"
@@ -142,7 +142,6 @@ function Checkout() {
           </IconButton>
         </Tooltip>
       )}
-      {/* <WeightCritertia/> */}
       {getStepContent(activeStep, handleTrigger)}
     </>
   );

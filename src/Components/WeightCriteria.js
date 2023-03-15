@@ -19,6 +19,7 @@ const style = {
   borderRadius: "20px",
   p: 4,
 };
+
 function WeightCritertia() {
   const [newEntries] = React.useState(
     JSON.parse(localStorage.getItem("newEntries") || [])
@@ -26,6 +27,33 @@ function WeightCritertia() {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+  const [value, setValue] = React.useState(10);
+  const handleChange = (event, newValue) => {
+    if (typeof newValue === "number") {
+      // alert(newValue);
+      setValue(newValue);
+    }
+  };
+  function valueLabelFormat(value) {
+    const data = [
+      " is way more important than ",
+      " is more important than ",
+      " is a little more important than ",
+      " is as important as ",
+      " is a little more important than ",
+      " is more important than ",
+      " is way more important than ",
+    ];
+    let scaledValue = "";
+    if (value < 4) {
+      scaledValue = newEntries[1] + data[value] + newEntries[0];
+    }
+    if (value >= 4) {
+      scaledValue = newEntries[0] + data[value] + newEntries[1];
+    }
+
+    return scaledValue;
+  }
   return (
     <>
       <Container>
@@ -90,14 +118,15 @@ function WeightCritertia() {
               >
                 <Slider
                   valueLabelDisplay="auto"
-                  step={10}
+                  step={1}
                   marks
-                  min={10}
-                  max={90}
+                  min={1}
+                  defaultValue={3}
+                  max={6}
                   sx={{ width: 400, ml: 2, mt: 2 }}
-                >
-                  
-                </Slider>
+                  onChange={handleChange}
+                  value={value}
+                ></Slider>
               </Box>
               <Box
                 sx={{
@@ -106,13 +135,17 @@ function WeightCritertia() {
                   alignItems: "center",
                 }}
               >
+                {/* {data && data.map((value,index)=>{ */}
+                {/* return( */}
                 <Typography
                   variant="p"
                   component="p"
                   sx={{ color: "black", mt: 2 }}
                 >
-                  This is important is this
+                  {valueLabelFormat([value])}
                 </Typography>
+                {/* )
+                })} */}
               </Box>
             </Paper>
           </Box>
