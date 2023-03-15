@@ -19,7 +19,6 @@ const style = {
   borderRadius: "20px",
   p: 4,
 };
-
 function WeightCritertia() {
   const [newEntries] = React.useState(
     JSON.parse(localStorage.getItem("newEntries") || [])
@@ -30,7 +29,6 @@ function WeightCritertia() {
   const [value, setValue] = React.useState(10);
   const handleChange = (event, newValue) => {
     if (typeof newValue === "number") {
-      // alert(newValue);
       setValue(newValue);
     }
   };

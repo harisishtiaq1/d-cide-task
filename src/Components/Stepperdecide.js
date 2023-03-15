@@ -71,7 +71,25 @@ function Checkout() {
           <Stepper
             alternativeLabel
             activeStep={activeStep}
-            sx={{ pt: 3, pb: 5 }}
+            sx={{
+              pt: 3,
+              pb: 5,
+              "& .MuiStepIcon-root": {
+                boxShadow:
+                  "4px 4px 8px rgba(0, 0, 0, 0.4), -4px -4px 8px rgba(255, 255, 255, 0.6)",
+                color: "#686870",
+                display: "block",
+                borderRadius: "50%",
+              },
+              "& .MuiStepIcon-root.MuiStepIcon-active": {
+                color: "#0c4e80",
+              },
+              "& .MuiStepIcon-root.MuiStepIcon-completed": {
+                color: "#0c4e80",
+                background: "white",
+                borderRadius: "50%",
+              },
+            }}
           >
             {steps.map((label) => (
               <Step key={label}>
