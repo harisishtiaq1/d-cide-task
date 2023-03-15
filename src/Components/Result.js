@@ -81,22 +81,22 @@ function Result() {
                 </Box>
 
                 <Box sx={{ display: "flex", ml: 8 }}>
-                  <Box sx={{display:'flex',flexDirection:'column'}}>
-                <Typography sx={{ color: "black", fontSize: "20px" }}>
-                  {Entries[1]}
-                </Typography>
-                <Typography sx={{ color: "black", fontSize: "20px",mt:10 }}>
-                  {Entries[0]}
-                </Typography>
+                  <Box sx={{ display: "flex", flexDirection: "column" }}>
+                    <Typography sx={{ color: "black", fontSize: "20px" }}>
+                      {Entries[1]}
+                    </Typography>
+                    <Typography
+                      sx={{ color: "black", fontSize: "20px", mt: 10 }}
+                    >
+                      {Entries[0]}
+                    </Typography>
+                  </Box>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
                 </Box>
-                  <div className="box"></div>
-                  <div className="box"></div>
-                  <div className="box"></div>
-                  <div className="box"></div>
-                  <div className="box"></div>
-                  
-                </Box>
-                
               </Paper>
             </Grid>
             <Grid item sx={12}>
@@ -118,7 +118,7 @@ function Result() {
                   }}
                 >
                   <Typography
-                    sx={{ color: "color.default",  }}
+                    sx={{ color: "color.default" }}
                     component="h1"
                     variant="h5"
                   >
@@ -139,20 +139,21 @@ function Result() {
                   </Tooltip>
                 </Box>
                 <Box sx={{ display: "flex", ml: 8 }}>
-                  <Box sx={{display:'flex',flexDirection:'column'}}>
-                <Typography sx={{ color: "black", fontSize: "20px" }}>
-                  {newEntries[1]}
-                </Typography>
-                <Typography sx={{ color: "black", fontSize: "20px",mt:10 }}>
-                {newEntries[0]}
-                </Typography>
-                </Box>
+                  <Box sx={{ display: "flex", flexDirection: "column" }}>
+                    <Typography sx={{ color: "black", fontSize: "20px" }}>
+                      {newEntries[1]}
+                    </Typography>
+                    <Typography
+                      sx={{ color: "black", fontSize: "20px", mt: 10 }}
+                    >
+                      {newEntries[0]}
+                    </Typography>
+                  </Box>
                   <div className="box"></div>
                   <div className="box"></div>
                   <div className="box"></div>
                   <div className="box"></div>
                   <div className="box"></div>
-                  
                 </Box>
               </Paper>
             </Grid>
