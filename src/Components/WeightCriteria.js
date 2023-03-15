@@ -26,13 +26,13 @@ function WeightCritertia() {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-  const [value, setValue] = React.useState(10);
+  const [value, setValue] = React.useState(0);
   const handleChange = (event, newValue) => {
     if (typeof newValue === "number") {
       setValue(newValue);
     }
   };
-  function valueLabelFormat(value) {
+  function valueLabelFormat() {
     const data = [
       " is way more important than ",
       " is more important than ",
@@ -119,7 +119,7 @@ function WeightCritertia() {
                   step={1}
                   marks
                   min={1}
-                  max={6}
+                  max={7}
                   sx={{ width: 400, ml: 2, mt: 2 }}
                   onChange={handleChange}
                   value={value}
@@ -132,8 +132,6 @@ function WeightCritertia() {
                   alignItems: "center",
                 }}
               >
-                {/* {data && data.map((value,index)=>{ */}
-                {/* return( */}
                 <Typography
                   variant="p"
                   component="p"
@@ -141,8 +139,6 @@ function WeightCritertia() {
                 >
                   {valueLabelFormat([value])}
                 </Typography>
-                {/* )
-                })} */}
               </Box>
             </Paper>
           </Box>
