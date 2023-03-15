@@ -3,7 +3,6 @@ import { Typography, Box, Tooltip, IconButton } from "@mui/material";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 import Stepperdecide from "./Stepperdecide";
 import LightModeIcon from "@mui/icons-material/LightMode";
-
 import { colorModeContext } from "../utilis/index";
 
 function Navbar() {
@@ -26,7 +25,7 @@ function Navbar() {
           d-cide
         </Typography>
       </Box>
-      <Tooltip title="Set Dark Theme">
+      <Tooltip title={mode === "dark" ? "Show Light Mode" : "Show Dark Mode"}>
         <IconButton
           sx={{
             mr: 2,
