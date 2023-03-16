@@ -33,10 +33,9 @@ export const ColorContextProvider = ({ children }) => {
         color: {
           default: "white",
         },
-        icon:{
-          default:'white'
-        }
-
+        icon: {
+          default: "white",
+        },
       }),
       ...(mode === "light" && {
         background: {
@@ -50,9 +49,9 @@ export const ColorContextProvider = ({ children }) => {
         color: {
           default: "black",
         },
-        icon:{
-          default:"rgb(15, 97, 160)"
-        }
+        icon: {
+          default: "rgb(15, 97, 160)",
+        },
       }),
     },
   });
