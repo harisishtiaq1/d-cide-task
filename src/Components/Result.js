@@ -44,10 +44,8 @@ function Result() {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-  let Entries =
-    JSON.parse(localStorage.getItem("Entries") )
-  let newEntries =
-    JSON.parse(localStorage.getItem("newEntries"))
+  let Entries = JSON.parse(localStorage.getItem("Entries"));
+  let newEntries = JSON.parse(localStorage.getItem("newEntries"));
 
   const value = JSON.parse(localStorage.getItem("value"));
   const data = [

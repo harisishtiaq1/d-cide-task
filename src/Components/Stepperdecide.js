@@ -47,17 +47,6 @@ function getStepContent(step, handleTrigger) {
 
 function Stepperdecide() {
   const [trigger, setTrigger] = React.useState(false);
-  let Entries = JSON.parse(localStorage.getItem("Entries"));
-  let newEntries = JSON.parse(localStorage.getItem("newEntries"));
-  React.useEffect(() => {
-    localStorage.setItem("Entries", JSON.stringify(Entries));
-  }, [Entries]);
-  React.useEffect(() => {}, [Entries]);
-
-  React.useEffect(() => {
-    localStorage.setItem("newEntries", JSON.stringify(newEntries));
-  }, [newEntries]);
-  React.useEffect(() => {}, [newEntries]);
   const [activeStep, setActiveStep] = React.useState(0);
 
   const handleNext = () => {

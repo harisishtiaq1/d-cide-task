@@ -39,9 +39,9 @@ function WeightCritertia() {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-  const [value, setValue] = React.useState( 
-    JSON.parse(localStorage.getItem("value") || 0
-    ))
+  const [value, setValue] = React.useState(
+    JSON.parse(localStorage.getItem("value") || 0)
+  );
   const handleChange = (event, newValue) => {
     if (typeof newValue === "number") {
       setValue(newValue);
