@@ -1,5 +1,5 @@
 import { Box, Container, Typography, IconButton } from "@mui/material";
-import React from "react";
+import React, { useEffect } from "react";
 import QuestionMarkIcon from "@mui/icons-material/QuestionMark";
 import { Slider } from "@mui/material";
 import { Paper } from "@mui/material";
@@ -39,12 +39,17 @@ function WeightCritertia() {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-  const [value, setValue] = React.useState(0);
+  const [value, setValue] = React.useState( 
+    JSON.parse(localStorage.getItem("value") || 0
+    ))
   const handleChange = (event, newValue) => {
     if (typeof newValue === "number") {
       setValue(newValue);
     }
   };
+  useEffect(() => {
+    localStorage.setItem("value", JSON.stringify(value));
+  }, [value]);
   function valueLabelFormat() {
     const data = [
       " is way more important than ",
@@ -130,6 +135,7 @@ function WeightCritertia() {
                   valueLabelDisplay="auto"
                   step={1}
                   marks
+                  defaultValue={3}
                   min={0}
                   max={6}
                   sx={{ width: 400, ml: 2, mt: 2 }}

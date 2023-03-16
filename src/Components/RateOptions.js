@@ -36,12 +36,9 @@ function RateOptions() {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-  const [Entries] = React.useState(
-    JSON.parse(localStorage.getItem("Entries") || [])
-  );
-  const [newEntries] = React.useState(
-    JSON.parse(localStorage.getItem("newEntries") || [])
-  );
+
+  let Entries = JSON.parse(localStorage.getItem("Entries"));
+  let newEntries = JSON.parse(localStorage.getItem("newEntries"));
   return (
     <>
       <Container>
@@ -50,7 +47,6 @@ function RateOptions() {
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            flexDirection: "column",
           }}
         >
           <Box sx={{ display: "flex" }}>

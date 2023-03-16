@@ -44,12 +44,12 @@ function Result() {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-  const [Entries] = React.useState(
-    JSON.parse(localStorage.getItem("Entries") || [])
-  );
-  const [newEntries] = React.useState(
-    JSON.parse(localStorage.getItem("newEntries") || [])
-  );
+  let Entries =
+    JSON.parse(localStorage.getItem("Entries") )
+  let newEntries =
+    JSON.parse(localStorage.getItem("newEntries"))
+
+  const value = JSON.parse(localStorage.getItem("value"));
   const data = [
     {
       name: Entries[0],
@@ -63,11 +63,11 @@ function Result() {
   const selectionData = [
     {
       name: newEntries[0],
-      value: 10,
+      value: value,
     },
     {
       name: newEntries[1],
-      value: 20,
+      value: value,
     },
   ];
   return (
@@ -198,7 +198,11 @@ function Result() {
                   >
                     <CartesianGrid strokeDasharray="3 3" />
                     <XAxis type="number" />
-                    <YAxis type="category" dataKey="name" />
+                    <YAxis
+                      type="category"
+                      dataKey="name"
+                      sx={{ color: "color.default" }}
+                    />
                     <Tooltip />
                     <Legend />
                     <Bar dataKey="value" fill="#8884d8" barSize={10} />

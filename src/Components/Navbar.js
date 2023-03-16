@@ -1,7 +1,6 @@
 import { React, useContext } from "react";
 import { Typography, Box, IconButton } from "@mui/material";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
-import Stepperdecide from "./Stepperdecide";
 import LightModeIcon from "@mui/icons-material/LightMode";
 import { colorModeContext } from "../utilis/index";
 import { styled } from "@mui/material/styles";
@@ -56,7 +55,6 @@ function Navbar() {
           {mode === "dark" ? <LightModeIcon /> : <DarkModeIcon />}
         </IconButton>
       </LightTooltip>
-      <Stepperdecide />
     </>
   );
 }
