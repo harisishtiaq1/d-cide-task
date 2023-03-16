@@ -32,32 +32,38 @@ const style = {
   borderRadius: "20px",
   p: 4,
 };
-const data = [
-  {
-    name: 'Page A',
-    uv: 4000,
-    pv: 2400,
-    amt: 2400,
-  },
-  {
-    name: 'Page B',
-    uv: 3000,
-    pv: 1398,
-    amt: 2210,
-  },
-];
 function Result() {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-  // const [Entries] = React.useState(
-  //     JSON.parse(localStorage.getItem("Entries") || [])
-  //   );
-  //   const [newEntries] = React.useState(
-  //       JSON.parse(localStorage.getItem("newEntries") || [])
-  //     );
-  return (
-    <>
+  const [Entries] = React.useState(
+        JSON.parse(localStorage.getItem("Entries") || [])
+      );
+      const [newEntries] = React.useState(
+            JSON.parse(localStorage.getItem("newEntries") || [])
+          );
+      const data = [
+        {
+          name: Entries[0],
+          value: 10,
+        },
+        {
+          name: Entries[1],
+          value: 20,
+        },
+      ];
+      const selectionData=[
+        {
+          name:newEntries[0],
+          value:10,
+        },
+        {
+          name:newEntries[1],
+          value:20,
+        }
+      ]
+      return (
+        <>
       <Container>
         <Box
           sx-={{
@@ -65,7 +71,7 @@ function Result() {
             justifyContent: "space-around",
             alignItems: "space-around",
           }}
-        >
+          >
           <Grid container spacing={3}>
             <Grid item xs={12} md={6}>
               <Paper
@@ -107,12 +113,12 @@ function Result() {
                     </IconButton>
                   </LightTooltip>
                 </Box>
-                <ResponsiveContainer width="100%" height="100%">
+                <ResponsiveContainer width="100%" height="90%">
         <BarChart
           width={500}
           height={300}
           data={data}
-          orientation='vertical'
+          layout='vertical'
           margin={{
             top: 5,
             right: 30,
@@ -121,12 +127,11 @@ function Result() {
           }}
         >
           <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="name" />
-          <YAxis />
+          <XAxis  type="number" />
+          <YAxis type="category" dataKey="name"  />
           <Tooltip />
           <Legend />
-          <Bar dataKey="pv" fill="#8884d8" />
-          <Bar dataKey="uv" fill="#82ca9d" />
+          <Bar dataKey="value" fill="#8884d8" barSize={10} />
         </BarChart>
       </ResponsiveContainer>
               </Paper>
@@ -150,7 +155,7 @@ function Result() {
                   }}
                 >
                   <Typography
-                    sx={{ color: "color.default" }}
+                    sx={{ color: "color.default",mt:2 }}
                     component="h1"
                     variant="h5"
                   >
@@ -170,6 +175,27 @@ function Result() {
                     </IconButton>
                   </LightTooltip>
                 </Box>
+                <ResponsiveContainer width="100%" height="90%">
+        <BarChart
+          width={500}
+          height={300}
+          data={selectionData}
+          layout='vertical'
+          margin={{
+            top: 5,
+            right: 30,
+            left: 20,
+            bottom: 5,
+          }}
+        >
+          <CartesianGrid strokeDasharray="3 3" />
+          <XAxis  type="number" />
+          <YAxis type="category" dataKey="name"  />
+          <Tooltip />
+          <Legend />
+          <Bar dataKey="value" fill="#8884d8" barSize={10} />
+        </BarChart>
+      </ResponsiveContainer>
               </Paper>
             </Grid>
           </Grid>

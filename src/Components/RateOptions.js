@@ -94,7 +94,7 @@ function RateOptions() {
                 <Typography
                   component="p"
                   variant="p"
-                  sx={{ color: "color.default" }}
+                  sx={{ color: "color.default",fontSize:'20px',mt:3 }}
                 >
                   {newEntries[1]}
                 </Typography>
@@ -107,7 +107,7 @@ function RateOptions() {
                   flexDirection: "column",
                 }}
               >
-                <Box sx={{ display: "flex", mt: 5 }}>
+                <Box sx={{ display: "flex", mt: 3 }}>
                   <Typography sx={{ color: "color.default" }}>
                     {Entries[0]}
                   </Typography>
@@ -122,7 +122,7 @@ function RateOptions() {
                     sx={{ width: 200, ml: 2 }}
                   ></Slider>
                 </Box>
-                <Box sx={{ display: "flex", mt: 5 }}>
+                <Box sx={{ display: "flex", mt: 3 }}>
                   <Typography sx={{ color: "color.default" }}>
                     {Entries[1]}
                   </Typography>
@@ -155,7 +155,7 @@ function RateOptions() {
                 <Typography
                   component="p"
                   variant="p"
-                  sx={{ color: "color.default" }}
+                  sx={{ color: "color.default",fontSize:'20px',mt:3 }}
                 >
                   {newEntries[0]}
                 </Typography>
@@ -168,7 +168,7 @@ function RateOptions() {
                   flexDirection: "column",
                 }}
               >
-                <Box sx={{ display: "flex", mt: 5 }}>
+                <Box sx={{ display: "flex", mt: 3 }}>
                   <Typography sx={{ color: "color.default" }}>
                     {Entries[0]}
                   </Typography>
@@ -183,7 +183,7 @@ function RateOptions() {
                     sx={{ width: 200, ml: 2 }}
                   ></Slider>
                 </Box>
-                <Box sx={{ display: "flex", mt: 5 }}>
+                <Box sx={{ display: "flex", mt: 3 }}>
                   <Typography sx={{ color: "color.default" }}>
                     {Entries[1]}
                   </Typography>
