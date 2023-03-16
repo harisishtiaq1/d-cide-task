@@ -62,7 +62,6 @@ function WeightCritertia() {
     if (value >= 4) {
       scaledValue = newEntries[0] + data[value] + newEntries[1];
     }
-
     return scaledValue;
   }
   return (
