@@ -1,4 +1,4 @@
-import { Box, Container, Tooltip, IconButton } from "@mui/material";
+import { Box, Container, IconButton } from "@mui/material";
 import React from "react";
 import Stepper from "@mui/material/Stepper";
 import Step from "@mui/material/Step";
@@ -10,6 +10,19 @@ import Main from "./Dashboard";
 import WeightCritertia from "./WeightCriteria";
 import RateOptions from "./RateOptions";
 import Result from "./Result";
+import { styled } from "@mui/material/styles";
+
+import Tooltip, { tooltipClasses } from "@mui/material/Tooltip";
+const LightTooltip = styled(({ className, ...props }) => (
+  <Tooltip {...props} classes={{ popper: className }} />
+))(({ theme }) => ({
+  [`& .${tooltipClasses.tooltip}`]: {
+    backgroundColor: "#cfcfe0",
+    color: "black",
+    boxShadow: theme.shadows[1],
+    fontSize: 11,
+  },
+}));
 const steps = [
   "Options and Selection Criteria",
   "Weight Criteria",
@@ -32,10 +45,11 @@ function getStepContent(step, handleTrigger) {
   }
 }
 
-function Checkout() {
+function Stepperdecide() {
   const [trigger, setTrigger] = React.useState(false);
   const [Entries] = React.useState(
-    JSON.parse(localStorage.getItem("Entries") || [])
+    JSON.parse(localStorage.getItem("Entries") ||
+     [])
   );
   const [newEntries] = React.useState(
     JSON.parse(localStorage.getItem("newEntries") || [])
@@ -104,7 +118,7 @@ function Checkout() {
         </Container>
       </Box>
       {trigger ? (
-        <Tooltip title="Next Step">
+        <LightTooltip title="Next Step">
           <IconButton
             fontSize="large"
             sx={{
@@ -130,7 +144,7 @@ function Checkout() {
               onClick={handleNext}
             />
           </IconButton>
-        </Tooltip>
+        </LightTooltip>
       ) : (
         <IconButton
           fontSize="large"
@@ -156,7 +170,7 @@ function Checkout() {
         </IconButton>
       )}
       {activeStep > 0 && (
-        <Tooltip title="Previous Step">
+        <LightTooltip title="Previous Step">
           <IconButton
             fontSize="large"
             sx={{
@@ -181,11 +195,11 @@ function Checkout() {
               onClick={handleBack}
             />
           </IconButton>
-        </Tooltip>
+        </LightTooltip>
       )}
       {getStepContent(activeStep, handleTrigger)}
     </>
   );
 }
 
-export default Checkout;
+export default Stepperdecide;

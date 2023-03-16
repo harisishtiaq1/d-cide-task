@@ -1,10 +1,22 @@
 import { React, useContext } from "react";
-import { Typography, Box, Tooltip, IconButton } from "@mui/material";
+import { Typography, Box,  IconButton } from "@mui/material";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 import Stepperdecide from "./Stepperdecide";
 import LightModeIcon from "@mui/icons-material/LightMode";
 import { colorModeContext } from "../utilis/index";
+import { styled } from '@mui/material/styles';
 
+import Tooltip, { tooltipClasses } from '@mui/material/Tooltip';
+const LightTooltip = styled(({ className, ...props }) => (
+  <Tooltip {...props} classes={{ popper: className }} />
+))(({ theme }) => ({
+  [`& .${tooltipClasses.tooltip}`]: {
+    backgroundColor:'#cfcfe0',
+    color: 'black',
+    boxShadow: theme.shadows[1],
+    fontSize: 11,
+  },
+}));
 function Navbar() {
   const { mode, toggleMode } = useContext(colorModeContext);
   console.log("mode", mode);
@@ -25,7 +37,7 @@ function Navbar() {
           d-cide
         </Typography>
       </Box>
-      <Tooltip title={mode === "dark" ? "Show Light Mode" : "Show Dark Mode"}>
+      <LightTooltip title={mode === "dark" ? "Set Light Theme" : "Set Dark Theme"}>
         <IconButton
           sx={{
             mr: 2,
@@ -41,7 +53,7 @@ function Navbar() {
         >
           {mode === "dark" ? <LightModeIcon /> : <DarkModeIcon />}
         </IconButton>
-      </Tooltip>
+      </LightTooltip>
       <Stepperdecide />
     </>
   );

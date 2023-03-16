@@ -1,4 +1,4 @@
-import { Box, Container, Typography, Tooltip, IconButton } from "@mui/material";
+import { Box, Container, Typography, IconButton } from "@mui/material";
 import React from "react";
 import QuestionMarkIcon from "@mui/icons-material/QuestionMark";
 import { Slider } from "@mui/material";
@@ -6,6 +6,19 @@ import { Paper } from "@mui/material";
 import { Modal, ListItem, List } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import CircleIcon from "@mui/icons-material/Circle";
+import { styled } from '@mui/material/styles';
+
+import Tooltip, { tooltipClasses } from '@mui/material/Tooltip';
+const LightTooltip = styled(({ className, ...props }) => (
+  <Tooltip {...props} classes={{ popper: className }} />
+))(({ theme }) => ({
+  [`& .${tooltipClasses.tooltip}`]: {
+    backgroundColor:'#cfcfe0',
+    color: 'black',
+    boxShadow: theme.shadows[1],
+    fontSize: 11,
+  },
+}));
 const style = {
   position: "absolute",
   top: "50%",
@@ -44,7 +57,7 @@ function RateOptions() {
             <Typography component="h1" variant="h5">
               Rate Options
             </Typography>
-            <Tooltip title="Show Help">
+            <LightTooltip title="Show Help">
               <IconButton
                 sx={{
                   ml: 2,
@@ -55,7 +68,7 @@ function RateOptions() {
               >
                 <QuestionMarkIcon onClick={handleOpen} />
               </IconButton>
-            </Tooltip>
+            </LightTooltip>
           </Box>
         </Box>
         <Box
@@ -203,7 +216,7 @@ function RateOptions() {
           aria-describedby="modal-modal-description"
         >
           <Box sx={style}>
-            <Tooltip title="Close">
+            <LightTooltip title="Close">
               <IconButton
                 aria-label="close"
                 onClick={handleClose}
@@ -217,7 +230,7 @@ function RateOptions() {
               >
                 <CloseIcon />
               </IconButton>
-            </Tooltip>
+            </LightTooltip>
             <Typography id="modal-modal-title" variant="h6" component="h2">
               Decision Options
             </Typography>

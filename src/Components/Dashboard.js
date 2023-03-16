@@ -1,7 +1,6 @@
 import {
   Typography,
   Box,
-  Tooltip,
   TextField,
   Paper,
   IconButton,
@@ -20,6 +19,19 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import QuestionMarkIcon from "@mui/icons-material/QuestionMark";
 import AddIcon from "@mui/icons-material/Add";
 import Modal from "@mui/material/Modal";
+import { styled } from "@mui/material/styles";
+
+import Tooltip, { tooltipClasses } from "@mui/material/Tooltip";
+const LightTooltip = styled(({ className, ...props }) => (
+  <Tooltip {...props} classes={{ popper: className }} />
+))(({ theme }) => ({
+  [`& .${tooltipClasses.tooltip}`]: {
+    backgroundColor: "#cfcfe0",
+    color: "black",
+    boxShadow: theme.shadows[1],
+    fontSize: 11,
+  },
+}));
 const style = {
   position: "absolute",
   top: "50%",
@@ -48,7 +60,9 @@ function Main({ handleTrigger }) {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   const [Entries, setEntries] = React.useState(
-    JSON.parse(localStorage.getItem("Entries") || [])
+    JSON.parse(localStorage.getItem("Entries") ||
+     []
+    )
   );
   const [newEntries, setNewEntries] = React.useState(
     JSON.parse(localStorage.getItem("newEntries") || [])
@@ -99,7 +113,7 @@ function Main({ handleTrigger }) {
             <Typography component="h1" variant="h5">
               Decision Options
             </Typography>
-            <Tooltip title="Show Help">
+            <LightTooltip title="Show Help">
               <IconButton
                 sx={{
                   ml: 2,
@@ -111,7 +125,7 @@ function Main({ handleTrigger }) {
               >
                 <QuestionMarkIcon onClick={handleOpen} />
               </IconButton>
-            </Tooltip>
+            </LightTooltip>
           </Stack>
           <Grid
             container
@@ -131,7 +145,7 @@ function Main({ handleTrigger }) {
                   backgroundColor: "backgroundColor.paper",
                 }}
               >
-                <Tooltip title="Write New Entry">
+                <LightTooltip title="Write New Entry">
                   <TextField
                     placeholder="New Entry"
                     variant="standard"
@@ -146,8 +160,8 @@ function Main({ handleTrigger }) {
                       }
                     }}
                   />
-                </Tooltip>
-                <Tooltip title="Add Entry">
+                </LightTooltip>
+                <LightTooltip title="Add Entry">
                   <IconButton
                     sx={{
                       ml: 2,
@@ -161,7 +175,7 @@ function Main({ handleTrigger }) {
                   >
                     <AddIcon />
                   </IconButton>
-                </Tooltip>
+                </LightTooltip>
               </Paper>
               <Grid sx={{ mt: 3 }}>
                 {Entries &&
@@ -178,15 +192,15 @@ function Main({ handleTrigger }) {
                             mt: 3,
                           }}
                         >
-                          <Tooltip title="Edit Entry">
+                          <LightTooltip title="Edit Entry">
                             <TextField
                               id="standard-basic"
                               variant="standard"
                               sx={{ ml: 4, mt: 1, width: 300 }}
                               value={Entry}
                             />
-                          </Tooltip>
-                          <Tooltip title="Delete Entry">
+                          </LightTooltip>
+                          <LightTooltip title="Delete Entry">
                             <IconButton
                               sx={{
                                 ml: 2,
@@ -198,7 +212,7 @@ function Main({ handleTrigger }) {
                             >
                               <DeleteIcon />
                             </IconButton>
-                          </Tooltip>
+                          </LightTooltip>
                         </Paper>
                       </Fade>
                     );
@@ -212,7 +226,7 @@ function Main({ handleTrigger }) {
             <Typography component="h1" variant="h5">
               Selection Criteria
             </Typography>
-            <Tooltip title="Show Help">
+            <LightTooltip title="Show Help">
               <IconButton
                 sx={{
                   ml: 2,
@@ -223,7 +237,7 @@ function Main({ handleTrigger }) {
               >
                 <QuestionMarkIcon onClick={handleOpen} />
               </IconButton>
-            </Tooltip>
+            </LightTooltip>
           </Stack>
           <Grid
             container
@@ -244,7 +258,7 @@ function Main({ handleTrigger }) {
                   mt: 3,
                 }}
               >
-                <Tooltip title="Create New Entry">
+                <LightTooltip title="Create New Entry">
                   <TextField
                     id="standard-basic"
                     variant="standard"
@@ -260,8 +274,8 @@ function Main({ handleTrigger }) {
                       }
                     }}
                   />
-                </Tooltip>
-                <Tooltip title="Add Entry">
+                </LightTooltip>
+                <LightTooltip title="Add Entry">
                   <IconButton
                     sx={{
                       ml: 2,
@@ -271,10 +285,11 @@ function Main({ handleTrigger }) {
                     }}
                     onClick={() => handleButton1Click(newCreate)}
                     onChange={newchecked}
+                    checked={checked}
                   >
                     <AddIcon />
                   </IconButton>
-                </Tooltip>
+                </LightTooltip>
               </Paper>
               {newEntries &&
                 newEntries.map((Entry, index) => {
@@ -290,15 +305,15 @@ function Main({ handleTrigger }) {
                             backgroundColor: "backgroundColor.paper",
                           }}
                         >
-                          <Tooltip title="Edit Entry">
+                          <LightTooltip title="Edit Entry">
                             <TextField
                               id="standard-basic"
                               variant="standard"
                               sx={{ ml: 4, mt: 1, width: 300 }}
                               value={Entry}
                             />
-                          </Tooltip>
-                          <Tooltip title="Delete Entry">
+                          </LightTooltip>
+                          <LightTooltip title="Delete Entry">
                             <IconButton
                               sx={{
                                 ml: 2,
@@ -310,7 +325,7 @@ function Main({ handleTrigger }) {
                             >
                               <DeleteIcon />
                             </IconButton>
-                          </Tooltip>
+                          </LightTooltip>
                         </Paper>
                       </Box>
                     </Fade>
@@ -354,7 +369,7 @@ function Main({ handleTrigger }) {
           aria-describedby="modal-modal-description"
         >
           <Box sx={style}>
-            <Tooltip title="Close">
+            <LightTooltip title="Close">
               <IconButton
                 aria-label="close"
                 onClick={handleClose}
@@ -368,7 +383,7 @@ function Main({ handleTrigger }) {
               >
                 <CloseIcon />
               </IconButton>
-            </Tooltip>
+            </LightTooltip>
             <Typography id="modal-modal-title" variant="h6" component="h2">
               Decision Options
             </Typography>
