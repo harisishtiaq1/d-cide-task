@@ -18,8 +18,7 @@ const LightTooltip = styled(({ className, ...props }) => (
 }));
 
 function WeightCritertia() {
-  let newEntries =
-    JSON.parse(localStorage.getItem("newEntries"))
+  let newEntries = JSON.parse(localStorage.getItem("newEntries"));
   const [value, setValue] = React.useState(
     JSON.parse(localStorage.getItem("value") || 0)
   );
@@ -74,7 +73,7 @@ function WeightCritertia() {
                     "3px 3px 6px rgb(0 0 0 / 25%), -3px -3px 6px rgb(255 255 255 / 5%)",
                 }}
               >
-                <QuestionMarkIcon  />
+                <QuestionMarkIcon />
               </IconButton>
             </LightTooltip>
           </Box>

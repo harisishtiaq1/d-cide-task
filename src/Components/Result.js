@@ -96,7 +96,7 @@ function Result() {
                           "3px 3px 6px rgb(0 0 0 / 25%), -3px -3px 6px rgb(255 255 255 / 5%)",
                       }}
                     >
-                      <QuestionMarkIcon  />
+                      <QuestionMarkIcon />
                     </IconButton>
                   </LightTooltip>
                 </Box>
@@ -158,7 +158,7 @@ function Result() {
                           "3px 3px 6px rgb(0 0 0 / 25%), -3px -3px 6px rgb(255 255 255 / 5%)",
                       }}
                     >
-                      <QuestionMarkIcon  />
+                      <QuestionMarkIcon />
                     </IconButton>
                   </LightTooltip>
                 </Box>
