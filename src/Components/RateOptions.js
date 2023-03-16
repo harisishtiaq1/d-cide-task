@@ -6,15 +6,15 @@ import { Paper } from "@mui/material";
 import { Modal, ListItem, List } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import CircleIcon from "@mui/icons-material/Circle";
-import { styled } from '@mui/material/styles';
+import { styled } from "@mui/material/styles";
 
-import Tooltip, { tooltipClasses } from '@mui/material/Tooltip';
+import Tooltip, { tooltipClasses } from "@mui/material/Tooltip";
 const LightTooltip = styled(({ className, ...props }) => (
   <Tooltip {...props} classes={{ popper: className }} />
 ))(({ theme }) => ({
   [`& .${tooltipClasses.tooltip}`]: {
-    backgroundColor:'#cfcfe0',
-    color: 'black',
+    backgroundColor: "#cfcfe0",
+    color: "black",
     boxShadow: theme.shadows[1],
     fontSize: 11,
   },
@@ -94,7 +94,7 @@ function RateOptions() {
                 <Typography
                   component="p"
                   variant="p"
-                  sx={{ color: "color.default",fontSize:'20px',mt:3 }}
+                  sx={{ color: "color.default", fontSize: "20px", mt: 3 }}
                 >
                   {newEntries[1]}
                 </Typography>
@@ -155,7 +155,7 @@ function RateOptions() {
                 <Typography
                   component="p"
                   variant="p"
-                  sx={{ color: "color.default",fontSize:'20px',mt:3 }}
+                  sx={{ color: "color.default", fontSize: "20px", mt: 3 }}
                 >
                   {newEntries[0]}
                 </Typography>

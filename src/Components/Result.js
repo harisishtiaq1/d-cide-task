@@ -7,7 +7,15 @@ import CloseIcon from "@mui/icons-material/Close";
 import CircleIcon from "@mui/icons-material/Circle";
 import { styled } from "@mui/material/styles";
 import Tooltip, { tooltipClasses } from "@mui/material/Tooltip";
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Legend, ResponsiveContainer } from 'recharts';
+import {
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Legend,
+  ResponsiveContainer,
+} from "recharts";
 const LightTooltip = styled(({ className, ...props }) => (
   <Tooltip {...props} classes={{ popper: className }} />
 ))(({ theme }) => ({
@@ -37,33 +45,33 @@ function Result() {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   const [Entries] = React.useState(
-        JSON.parse(localStorage.getItem("Entries") || [])
-      );
-      const [newEntries] = React.useState(
-            JSON.parse(localStorage.getItem("newEntries") || [])
-          );
-      const data = [
-        {
-          name: Entries[0],
-          value: 10,
-        },
-        {
-          name: Entries[1],
-          value: 20,
-        },
-      ];
-      const selectionData=[
-        {
-          name:newEntries[0],
-          value:10,
-        },
-        {
-          name:newEntries[1],
-          value:20,
-        }
-      ]
-      return (
-        <>
+    JSON.parse(localStorage.getItem("Entries") || [])
+  );
+  const [newEntries] = React.useState(
+    JSON.parse(localStorage.getItem("newEntries") || [])
+  );
+  const data = [
+    {
+      name: Entries[0],
+      value: 10,
+    },
+    {
+      name: Entries[1],
+      value: 20,
+    },
+  ];
+  const selectionData = [
+    {
+      name: newEntries[0],
+      value: 10,
+    },
+    {
+      name: newEntries[1],
+      value: 20,
+    },
+  ];
+  return (
+    <>
       <Container>
         <Box
           sx-={{
@@ -71,7 +79,7 @@ function Result() {
             justifyContent: "space-around",
             alignItems: "space-around",
           }}
-          >
+        >
           <Grid container spacing={3}>
             <Grid item xs={12} md={6}>
               <Paper
@@ -114,26 +122,26 @@ function Result() {
                   </LightTooltip>
                 </Box>
                 <ResponsiveContainer width="100%" height="90%">
-        <BarChart
-          width={500}
-          height={300}
-          data={data}
-          layout='vertical'
-          margin={{
-            top: 5,
-            right: 30,
-            left: 20,
-            bottom: 5,
-          }}
-        >
-          <CartesianGrid strokeDasharray="3 3" />
-          <XAxis  type="number" />
-          <YAxis type="category" dataKey="name"  />
-          <Tooltip />
-          <Legend />
-          <Bar dataKey="value" fill="#8884d8" barSize={10} />
-        </BarChart>
-      </ResponsiveContainer>
+                  <BarChart
+                    width={500}
+                    height={300}
+                    data={data}
+                    layout="vertical"
+                    margin={{
+                      top: 5,
+                      right: 30,
+                      left: 20,
+                      bottom: 5,
+                    }}
+                  >
+                    <CartesianGrid strokeDasharray="3 3" />
+                    <XAxis type="number" />
+                    <YAxis type="category" dataKey="name" />
+                    <Tooltip />
+                    <Legend />
+                    <Bar dataKey="value" fill="#8884d8" barSize={10} />
+                  </BarChart>
+                </ResponsiveContainer>
               </Paper>
             </Grid>
             <Grid item xs={12} md={6}>
@@ -155,7 +163,7 @@ function Result() {
                   }}
                 >
                   <Typography
-                    sx={{ color: "color.default",mt:2 }}
+                    sx={{ color: "color.default", mt: 2 }}
                     component="h1"
                     variant="h5"
                   >
@@ -176,26 +184,26 @@ function Result() {
                   </LightTooltip>
                 </Box>
                 <ResponsiveContainer width="100%" height="90%">
-        <BarChart
-          width={500}
-          height={300}
-          data={selectionData}
-          layout='vertical'
-          margin={{
-            top: 5,
-            right: 30,
-            left: 20,
-            bottom: 5,
-          }}
-        >
-          <CartesianGrid strokeDasharray="3 3" />
-          <XAxis  type="number" />
-          <YAxis type="category" dataKey="name"  />
-          <Tooltip />
-          <Legend />
-          <Bar dataKey="value" fill="#8884d8" barSize={10} />
-        </BarChart>
-      </ResponsiveContainer>
+                  <BarChart
+                    width={500}
+                    height={300}
+                    data={selectionData}
+                    layout="vertical"
+                    margin={{
+                      top: 5,
+                      right: 30,
+                      left: 20,
+                      bottom: 5,
+                    }}
+                  >
+                    <CartesianGrid strokeDasharray="3 3" />
+                    <XAxis type="number" />
+                    <YAxis type="category" dataKey="name" />
+                    <Tooltip />
+                    <Legend />
+                    <Bar dataKey="value" fill="#8884d8" barSize={10} />
+                  </BarChart>
+                </ResponsiveContainer>
               </Paper>
             </Grid>
           </Grid>

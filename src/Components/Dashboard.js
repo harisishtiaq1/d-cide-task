@@ -60,9 +60,7 @@ function Main({ handleTrigger }) {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   const [Entries, setEntries] = React.useState(
-    JSON.parse(localStorage.getItem("Entries") ||
-     []
-    )
+    JSON.parse(localStorage.getItem("Entries") || [])
   );
   const [newEntries, setNewEntries] = React.useState(
     JSON.parse(localStorage.getItem("newEntries") || [])

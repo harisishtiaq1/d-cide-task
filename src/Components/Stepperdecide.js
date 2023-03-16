@@ -48,8 +48,7 @@ function getStepContent(step, handleTrigger) {
 function Stepperdecide() {
   const [trigger, setTrigger] = React.useState(false);
   const [Entries] = React.useState(
-    JSON.parse(localStorage.getItem("Entries") ||
-     [])
+    JSON.parse(localStorage.getItem("Entries") || [])
   );
   const [newEntries] = React.useState(
     JSON.parse(localStorage.getItem("newEntries") || [])
