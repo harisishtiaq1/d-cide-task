@@ -16,7 +16,7 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import QuestionMarkIcon from "@mui/icons-material/QuestionMark";
 import AddIcon from "@mui/icons-material/Add";
 import { styled } from "@mui/material/styles";
-// import DashboardModal from "./Modals/DashboardModal";
+import DashboardModal from "./Modals/DashboardModal";
 import Tooltip, { tooltipClasses } from "@mui/material/Tooltip";
 const LightTooltip = styled(({ className, ...props }) => (
   <Tooltip {...props} classes={{ popper: className }} />
