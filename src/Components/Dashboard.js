@@ -49,7 +49,7 @@ function Main({ handleTrigger }) {
   );
   const handleButtonClick = (Entry) => {
     if (Entry) {
-      setEntries((prevState) => [...prevState, Entry]);
+      setEntries((prevState) => [Entry, ...prevState]);
       setCreate("");
     }
   };
@@ -65,7 +65,7 @@ function Main({ handleTrigger }) {
   };
   const handleButton1Click = (Entry) => {
     if (Entry) {
-      setNewEntries((prevState) => [...prevState, Entry]);
+      setNewEntries((prevState) => [Entry, ...prevState]);
       setnewCreate("");
     }
   };
