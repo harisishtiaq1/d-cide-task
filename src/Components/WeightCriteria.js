@@ -19,6 +19,7 @@ const LightTooltip = styled(({ className, ...props }) => (
 
 function WeightCritertia() {
   let newEntries = JSON.parse(localStorage.getItem("newEntries"));
+
   const [value, setValue] = React.useState(
     JSON.parse(localStorage.getItem("value") || 0)
   );
@@ -27,9 +28,6 @@ function WeightCritertia() {
       setValue(newValue);
     }
   };
-  useEffect(() => {
-    localStorage.setItem("value", JSON.stringify(value));
-  }, [value]);
   function valueLabelFormat() {
     const data = [
       " is way more important than ",
@@ -49,6 +47,9 @@ function WeightCritertia() {
     }
     return scaledValue;
   }
+  useEffect(() => {
+    localStorage.setItem("value", JSON.stringify(value));
+  }, [value]);
   return (
     <>
       <Container>
